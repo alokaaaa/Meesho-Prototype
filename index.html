@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Valmo RTO Prototypes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<script>// https://github.com/d3/d3-delaunay v6.0.4 Copyright 2018-2021 Observable, Inc., 2021 Mapbox
+!function(t,i){"object"==typeof exports&&"undefined"!=typeof module?i(exports):"function"==typeof define&&define.amd?define(["exports"],i):i((t="undefined"!=typeof globalThis?globalThis:t||self).d3=t.d3||{})}(this,(function(t){"use strict";const i=134217729;function e(t,i,e,n,s){let l,h,r,o,a=i[0],c=n[0],u=0,f=0;c>a==c>-a?(l=a,a=i[++u]):(l=c,c=n[++f]);let _=0;if(u<t&&f<e)for(c>a==c>-a?(h=a+l,r=l-(h-a),a=i[++u]):(h=c+l,r=l-(h-c),c=n[++f]),l=h,0!==r&&(s[_++]=r);u<t&&f<e;)c>a==c>-a?(h=l+a,o=h-l,r=l-(h-o)+(a-o),a=i[++u]):(h=l+c,o=h-l,r=l-(h-o)+(c-o),c=n[++f]),l=h,0!==r&&(s[_++]=r);for(;u<t;)h=l+a,o=h-l,r=l-(h-o)+(a-o),a=i[++u],l=h,0!==r&&(s[_++]=r);for(;f<e;)h=l+c,o=h-l,r=l-(h-o)+(c-o),c=n[++f],l=h,0!==r&&(s[_++]=r);return 0===l&&0!==_||(s[_++]=l),_}function n(t){return new Float64Array(t)}const s=n(4),l=n(8),h=n(12),r=n(16),o=n(4);function a(t,n,a,c,u,f){const _=(n-f)*(a-u),d=(t-u)*(c-f),g=_-d;if(0===_||0===d||_>0!=d>0)return g;const y=Math.abs(_+d);return Math.abs(g)>=33306690738754716e-32*y?g:-function(t,n,a,c,u,f,_){let d,g,y,m,x,p,w,v,b,T,M,A,k,$,P,S,I,z;const F=t-u,U=a-u,K=n-f,L=c-f;$=F*L,p=i*F,w=p-(p-F),v=F-w,p=i*L,b=p-(p-L),T=L-b,P=v*T-($-w*b-v*b-w*T),S=K*U,p=i*K,w=p-(p-K),v=K-w,p=i*U,b=p-(p-U),T=U-b,I=v*T-(S-w*b-v*b-w*T),M=P-I,x=P-M,s[0]=P-(M+x)+(x-I),A=$+M,x=A-$,k=$-(A-x)+(M-x),M=k-S,x=k-M,s[1]=k-(M+x)+(x-S),z=A+M,x=z-A,s[2]=A-(z-x)+(M-x),s[3]=z;let j=function(t,i){let e=i[0];for(let n=1;n<t;n++)e+=i[n];return e}(4,s),H=22204460492503146e-32*_;if(j>=H||-j>=H)return j;if(x=t-F,d=t-(F+x)+(x-u),x=a-U,y=a-(U+x)+(x-u),x=n-K,g=n-(K+x)+(x-f),x=c-L,m=c-(L+x)+(x-f),0===d&&0===g&&0===y&&0===m)return j;if(H=11093356479670487e-47*_+33306690738754706e-32*Math.abs(j),j+=F*m+L*d-(K*y+U*g),j>=H||-j>=H)return j;$=d*L,p=i*d,w=p-(p-d),v=d-w,p=i*L,b=p-(p-L),T=L-b,P=v*T-($-w*b-v*b-w*T),S=g*U,p=i*g,w=p-(p-g),v=g-w,p=i*U,b=p-(p-U),T=U-b,I=v*T-(S-w*b-v*b-w*T),M=P-I,x=P-M,o[0]=P-(M+x)+(x-I),A=$+M,x=A-$,k=$-(A-x)+(M-x),M=k-S,x=k-M,o[1]=k-(M+x)+(x-S),z=A+M,x=z-A,o[2]=A-(z-x)+(M-x),o[3]=z;const E=e(4,s,4,o,l);$=F*m,p=i*F,w=p-(p-F),v=F-w,p=i*m,b=p-(p-m),T=m-b,P=v*T-($-w*b-v*b-w*T),S=K*y,p=i*K,w=p-(p-K),v=K-w,p=i*y,b=p-(p-y),T=y-b,I=v*T-(S-w*b-v*b-w*T),M=P-I,x=P-M,o[0]=P-(M+x)+(x-I),A=$+M,x=A-$,k=$-(A-x)+(M-x),M=k-S,x=k-M,o[1]=k-(M+x)+(x-S),z=A+M,x=z-A,o[2]=A-(z-x)+(M-x),o[3]=z;const C=e(E,l,4,o,h);$=d*m,p=i*d,w=p-(p-d),v=d-w,p=i*m,b=p-(p-m),T=m-b,P=v*T-($-w*b-v*b-w*T),S=g*y,p=i*g,w=p-(p-g),v=g-w,p=i*y,b=p-(p-y),T=y-b,I=v*T-(S-w*b-v*b-w*T),M=P-I,x=P-M,o[0]=P-(M+x)+(x-I),A=$+M,x=A-$,k=$-(A-x)+(M-x),M=k-S,x=k-M,o[1]=k-(M+x)+(x-S),z=A+M,x=z-A,o[2]=A-(z-x)+(M-x),o[3]=z;const N=e(C,h,4,o,r);return r[N-1]}(t,n,a,c,u,f,y)}const c=Math.pow(2,-52),u=new Uint32Array(512);class f{static from(t,i=x,e=p){const n=t.length,s=new Float64Array(2*n);for(let l=0;l<n;l++){const n=t[l];s[2*l]=i(n),s[2*l+1]=e(n)}return new f(s)}constructor(t){const i=t.length>>1;if(i>0&&"number"!=typeof t[0])throw new Error("Expected coords to contain numbers.");this.coords=t;const e=Math.max(2*i-5,0);this._triangles=new Uint32Array(3*e),this._halfedges=new Int32Array(3*e),this._hashSize=Math.ceil(Math.sqrt(i)),this._hullPrev=new Uint32Array(i),this._hullNext=new Uint32Array(i),this._hullTri=new Uint32Array(i),this._hullHash=new Int32Array(this._hashSize).fill(-1),this._ids=new Uint32Array(i),this._dists=new Float64Array(i),this.update()}update(){const{coords:t,_hullPrev:i,_hullNext:e,_hullTri:n,_hullHash:s}=this,l=t.length>>1;let h=1/0,r=1/0,o=-1/0,u=-1/0;for(let i=0;i<l;i++){const e=t[2*i],n=t[2*i+1];e<h&&(h=e),n<r&&(r=n),e>o&&(o=e),n>u&&(u=n),this._ids[i]=i}const f=(h+o)/2,d=(r+u)/2;let m,x,p,w=1/0;for(let i=0;i<l;i++){const e=_(f,d,t[2*i],t[2*i+1]);e<w&&(m=i,w=e)}const v=t[2*m],b=t[2*m+1];w=1/0;for(let i=0;i<l;i++){if(i===m)continue;const e=_(v,b,t[2*i],t[2*i+1]);e<w&&e>0&&(x=i,w=e)}let T=t[2*x],M=t[2*x+1],A=1/0;for(let i=0;i<l;i++){if(i===m||i===x)continue;const e=g(v,b,T,M,t[2*i],t[2*i+1]);e<A&&(p=i,A=e)}let k=t[2*p],$=t[2*p+1];if(A===1/0){for(let i=0;i<l;i++)this._dists[i]=t[2*i]-t[0]||t[2*i+1]-t[1];y(this._ids,this._dists,0,l-1);const i=new Uint32Array(l);let e=0;for(let t=0,n=-1/0;t<l;t++){const s=this._ids[t];this._dists[s]>n&&(i[e++]=s,n=this._dists[s])}return this.hull=i.subarray(0,e),this.triangles=new Uint32Array(0),void(this.halfedges=new Uint32Array(0))}if(a(v,b,T,M,k,$)<0){const t=x,i=T,e=M;x=p,T=k,M=$,p=t,k=i,$=e}const P=function(t,i,e,n,s,l){const h=e-t,r=n-i,o=s-t,a=l-i,c=h*h+r*r,u=o*o+a*a,f=.5/(h*a-r*o);return{x:t+(a*c-r*u)*f,y:i+(h*u-o*c)*f}}(v,b,T,M,k,$);this._cx=P.x,this._cy=P.y;for(let i=0;i<l;i++)this._dists[i]=_(t[2*i],t[2*i+1],P.x,P.y);y(this._ids,this._dists,0,l-1),this._hullStart=m;let S=3;e[m]=i[p]=x,e[x]=i[m]=p,e[p]=i[x]=m,n[m]=0,n[x]=1,n[p]=2,s.fill(-1),s[this._hashKey(v,b)]=m,s[this._hashKey(T,M)]=x,s[this._hashKey(k,$)]=p,this.trianglesLen=0,this._addTriangle(m,x,p,-1,-1,-1);for(let l,h,r=0;r<this._ids.length;r++){const o=this._ids[r],u=t[2*o],f=t[2*o+1];if(r>0&&Math.abs(u-l)<=c&&Math.abs(f-h)<=c)continue;if(l=u,h=f,o===m||o===x||o===p)continue;let _=0;for(let t=0,i=this._hashKey(u,f);t<this._hashSize&&(_=s[(i+t)%this._hashSize],-1===_||_===e[_]);t++);_=i[_];let d,g=_;for(;d=e[g],a(u,f,t[2*g],t[2*g+1],t[2*d],t[2*d+1])>=0;)if(g=d,g===_){g=-1;break}if(-1===g)continue;let y=this._addTriangle(g,o,e[g],-1,-1,n[g]);n[o]=this._legalize(y+2),n[g]=y,S++;let w=e[g];for(;d=e[w],a(u,f,t[2*w],t[2*w+1],t[2*d],t[2*d+1])<0;)y=this._addTriangle(w,o,d,n[o],-1,n[w]),n[o]=this._legalize(y+2),e[w]=w,S--,w=d;if(g===_)for(;d=i[g],a(u,f,t[2*d],t[2*d+1],t[2*g],t[2*g+1])<0;)y=this._addTriangle(d,o,g,-1,n[g],n[d]),this._legalize(y+2),n[d]=y,e[g]=g,S--,g=d;this._hullStart=i[o]=g,e[g]=i[w]=o,e[o]=w,s[this._hashKey(u,f)]=o,s[this._hashKey(t[2*g],t[2*g+1])]=g}this.hull=new Uint32Array(S);for(let t=0,i=this._hullStart;t<S;t++)this.hull[t]=i,i=e[i];this.triangles=this._triangles.subarray(0,this.trianglesLen),this.halfedges=this._halfedges.subarray(0,this.trianglesLen)}_hashKey(t,i){return Math.floor(function(t,i){const e=t/(Math.abs(t)+Math.abs(i));return(i>0?3-e:1+e)/4}(t-this._cx,i-this._cy)*this._hashSize)%this._hashSize}_legalize(t){const{_triangles:i,_halfedges:e,coords:n}=this;let s=0,l=0;for(;;){const h=e[t],r=t-t%3;if(l=r+(t+2)%3,-1===h){if(0===s)break;t=u[--s];continue}const o=h-h%3,a=r+(t+1)%3,c=o+(h+2)%3,f=i[l],_=i[t],g=i[a],y=i[c];if(d(n[2*f],n[2*f+1],n[2*_],n[2*_+1],n[2*g],n[2*g+1],n[2*y],n[2*y+1])){i[t]=y,i[h]=f;const n=e[c];if(-1===n){let i=this._hullStart;do{if(this._hullTri[i]===c){this._hullTri[i]=t;break}i=this._hullPrev[i]}while(i!==this._hullStart)}this._link(t,n),this._link(h,e[l]),this._link(l,c);const r=o+(h+1)%3;s<u.length&&(u[s++]=r)}else{if(0===s)break;t=u[--s]}}return l}_link(t,i){this._halfedges[t]=i,-1!==i&&(this._halfedges[i]=t)}_addTriangle(t,i,e,n,s,l){const h=this.trianglesLen;return this._triangles[h]=t,this._triangles[h+1]=i,this._triangles[h+2]=e,this._link(h,n),this._link(h+1,s),this._link(h+2,l),this.trianglesLen+=3,h}}function _(t,i,e,n){const s=t-e,l=i-n;return s*s+l*l}function d(t,i,e,n,s,l,h,r){const o=t-h,a=i-r,c=e-h,u=n-r,f=s-h,_=l-r,d=c*c+u*u,g=f*f+_*_;return o*(u*g-d*_)-a*(c*g-d*f)+(o*o+a*a)*(c*_-u*f)<0}function g(t,i,e,n,s,l){const h=e-t,r=n-i,o=s-t,a=l-i,c=h*h+r*r,u=o*o+a*a,f=.5/(h*a-r*o),_=(a*c-r*u)*f,d=(h*u-o*c)*f;return _*_+d*d}function y(t,i,e,n){if(n-e<=20)for(let s=e+1;s<=n;s++){const n=t[s],l=i[n];let h=s-1;for(;h>=e&&i[t[h]]>l;)t[h+1]=t[h--];t[h+1]=n}else{let s=e+1,l=n;m(t,e+n>>1,s),i[t[e]]>i[t[n]]&&m(t,e,n),i[t[s]]>i[t[n]]&&m(t,s,n),i[t[e]]>i[t[s]]&&m(t,e,s);const h=t[s],r=i[h];for(;;){do{s++}while(i[t[s]]<r);do{l--}while(i[t[l]]>r);if(l<s)break;m(t,s,l)}t[e+1]=t[l],t[l]=h,n-s+1>=l-e?(y(t,i,s,n),y(t,i,e,l-1)):(y(t,i,e,l-1),y(t,i,s,n))}}function m(t,i,e){const n=t[i];t[i]=t[e],t[e]=n}function x(t){return t[0]}function p(t){return t[1]}const w=1e-6;class v{constructor(){this._x0=this._y0=this._x1=this._y1=null,this._=""}moveTo(t,i){this._+=`M${this._x0=this._x1=+t},${this._y0=this._y1=+i}`}closePath(){null!==this._x1&&(this._x1=this._x0,this._y1=this._y0,this._+="Z")}lineTo(t,i){this._+=`L${this._x1=+t},${this._y1=+i}`}arc(t,i,e){const n=(t=+t)+(e=+e),s=i=+i;if(e<0)throw new Error("negative radius");null===this._x1?this._+=`M${n},${s}`:(Math.abs(this._x1-n)>w||Math.abs(this._y1-s)>w)&&(this._+="L"+n+","+s),e&&(this._+=`A${e},${e},0,1,1,${t-e},${i}A${e},${e},0,1,1,${this._x1=n},${this._y1=s}`)}rect(t,i,e,n){this._+=`M${this._x0=this._x1=+t},${this._y0=this._y1=+i}h${+e}v${+n}h${-e}Z`}value(){return this._||null}}class b{constructor(){this._=[]}moveTo(t,i){this._.push([t,i])}closePath(){this._.push(this._[0].slice())}lineTo(t,i){this._.push([t,i])}value(){return this._.length?this._:null}}class T{constructor(t,[i,e,n,s]=[0,0,960,500]){if(!((n=+n)>=(i=+i)&&(s=+s)>=(e=+e)))throw new Error("invalid bounds");this.delaunay=t,this._circumcenters=new Float64Array(2*t.points.length),this.vectors=new Float64Array(2*t.points.length),this.xmax=n,this.xmin=i,this.ymax=s,this.ymin=e,this._init()}update(){return this.delaunay.update(),this._init(),this}_init(){const{delaunay:{points:t,hull:i,triangles:e},vectors:n}=this;let s,l;const h=this.circumcenters=this._circumcenters.subarray(0,e.length/3*2);for(let n,r,o=0,a=0,c=e.length;o<c;o+=3,a+=2){const c=2*e[o],u=2*e[o+1],f=2*e[o+2],_=t[c],d=t[c+1],g=t[u],y=t[u+1],m=t[f],x=t[f+1],p=g-_,w=y-d,v=m-_,b=x-d,T=2*(p*b-w*v);if(Math.abs(T)<1e-9){if(void 0===s){s=l=0;for(const e of i)s+=t[2*e],l+=t[2*e+1];s/=i.length,l/=i.length}const e=1e9*Math.sign((s-_)*b-(l-d)*v);n=(_+m)/2-e*b,r=(d+x)/2+e*v}else{const t=1/T,i=p*p+w*w,e=v*v+b*b;n=_+(b*i-w*e)*t,r=d+(p*e-v*i)*t}h[a]=n,h[a+1]=r}let r,o,a,c=i[i.length-1],u=4*c,f=t[2*c],_=t[2*c+1];n.fill(0);for(let e=0;e<i.length;++e)c=i[e],r=u,o=f,a=_,u=4*c,f=t[2*c],_=t[2*c+1],n[r+2]=n[u]=a-_,n[r+3]=n[u+1]=f-o}render(t){const i=null==t?t=new v:void 0,{delaunay:{halfedges:e,inedges:n,hull:s},circumcenters:l,vectors:h}=this;if(s.length<=1)return null;for(let i=0,n=e.length;i<n;++i){const n=e[i];if(n<i)continue;const s=2*Math.floor(i/3),h=2*Math.floor(n/3),r=l[s],o=l[s+1],a=l[h],c=l[h+1];this._renderSegment(r,o,a,c,t)}let r,o=s[s.length-1];for(let i=0;i<s.length;++i){r=o,o=s[i];const e=2*Math.floor(n[o]/3),a=l[e],c=l[e+1],u=4*r,f=this._project(a,c,h[u+2],h[u+3]);f&&this._renderSegment(a,c,f[0],f[1],t)}return i&&i.value()}renderBounds(t){const i=null==t?t=new v:void 0;return t.rect(this.xmin,this.ymin,this.xmax-this.xmin,this.ymax-this.ymin),i&&i.value()}renderCell(t,i){const e=null==i?i=new v:void 0,n=this._clip(t);if(null===n||!n.length)return;i.moveTo(n[0],n[1]);let s=n.length;for(;n[0]===n[s-2]&&n[1]===n[s-1]&&s>1;)s-=2;for(let t=2;t<s;t+=2)n[t]===n[t-2]&&n[t+1]===n[t-1]||i.lineTo(n[t],n[t+1]);return i.closePath(),e&&e.value()}*cellPolygons(){const{delaunay:{points:t}}=this;for(let i=0,e=t.length/2;i<e;++i){const t=this.cellPolygon(i);t&&(t.index=i,yield t)}}cellPolygon(t){const i=new b;return this.renderCell(t,i),i.value()}_renderSegment(t,i,e,n,s){let l;const h=this._regioncode(t,i),r=this._regioncode(e,n);0===h&&0===r?(s.moveTo(t,i),s.lineTo(e,n)):(l=this._clipSegment(t,i,e,n,h,r))&&(s.moveTo(l[0],l[1]),s.lineTo(l[2],l[3]))}contains(t,i,e){return(i=+i)==i&&(e=+e)==e&&this.delaunay._step(t,i,e)===t}*neighbors(t){const i=this._clip(t);if(i)for(const e of this.delaunay.neighbors(t)){const t=this._clip(e);if(t)t:for(let n=0,s=i.length;n<s;n+=2)for(let l=0,h=t.length;l<h;l+=2)if(i[n]===t[l]&&i[n+1]===t[l+1]&&i[(n+2)%s]===t[(l+h-2)%h]&&i[(n+3)%s]===t[(l+h-1)%h]){yield e;break t}}}_cell(t){const{circumcenters:i,delaunay:{inedges:e,halfedges:n,triangles:s}}=this,l=e[t];if(-1===l)return null;const h=[];let r=l;do{const e=Math.floor(r/3);if(h.push(i[2*e],i[2*e+1]),r=r%3==2?r-2:r+1,s[r]!==t)break;r=n[r]}while(r!==l&&-1!==r);return h}_clip(t){if(0===t&&1===this.delaunay.hull.length)return[this.xmax,this.ymin,this.xmax,this.ymax,this.xmin,this.ymax,this.xmin,this.ymin];const i=this._cell(t);if(null===i)return null;const{vectors:e}=this,n=4*t;return this._simplify(e[n]||e[n+1]?this._clipInfinite(t,i,e[n],e[n+1],e[n+2],e[n+3]):this._clipFinite(t,i))}_clipFinite(t,i){const e=i.length;let n,s,l,h,r=null,o=i[e-2],a=i[e-1],c=this._regioncode(o,a),u=0;for(let f=0;f<e;f+=2)if(n=o,s=a,o=i[f],a=i[f+1],l=c,c=this._regioncode(o,a),0===l&&0===c)h=u,u=0,r?r.push(o,a):r=[o,a];else{let i,e,f,_,d;if(0===l){if(null===(i=this._clipSegment(n,s,o,a,l,c)))continue;[e,f,_,d]=i}else{if(null===(i=this._clipSegment(o,a,n,s,c,l)))continue;[_,d,e,f]=i,h=u,u=this._edgecode(e,f),h&&u&&this._edge(t,h,u,r,r.length),r?r.push(e,f):r=[e,f]}h=u,u=this._edgecode(_,d),h&&u&&this._edge(t,h,u,r,r.length),r?r.push(_,d):r=[_,d]}if(r)h=u,u=this._edgecode(r[0],r[1]),h&&u&&this._edge(t,h,u,r,r.length);else if(this.contains(t,(this.xmin+this.xmax)/2,(this.ymin+this.ymax)/2))return[this.xmax,this.ymin,this.xmax,this.ymax,this.xmin,this.ymax,this.xmin,this.ymin];return r}_clipSegment(t,i,e,n,s,l){const h=s<l;for(h&&([t,i,e,n,s,l]=[e,n,t,i,l,s]);;){if(0===s&&0===l)return h?[e,n,t,i]:[t,i,e,n];if(s&l)return null;let r,o,a=s||l;8&a?(r=t+(e-t)*(this.ymax-i)/(n-i),o=this.ymax):4&a?(r=t+(e-t)*(this.ymin-i)/(n-i),o=this.ymin):2&a?(o=i+(n-i)*(this.xmax-t)/(e-t),r=this.xmax):(o=i+(n-i)*(this.xmin-t)/(e-t),r=this.xmin),s?(t=r,i=o,s=this._regioncode(t,i)):(e=r,n=o,l=this._regioncode(e,n))}}_clipInfinite(t,i,e,n,s,l){let h,r=Array.from(i);if((h=this._project(r[0],r[1],e,n))&&r.unshift(h[0],h[1]),(h=this._project(r[r.length-2],r[r.length-1],s,l))&&r.push(h[0],h[1]),r=this._clipFinite(t,r))for(let i,e=0,n=r.length,s=this._edgecode(r[n-2],r[n-1]);e<n;e+=2)i=s,s=this._edgecode(r[e],r[e+1]),i&&s&&(e=this._edge(t,i,s,r,e),n=r.length);else this.contains(t,(this.xmin+this.xmax)/2,(this.ymin+this.ymax)/2)&&(r=[this.xmin,this.ymin,this.xmax,this.ymin,this.xmax,this.ymax,this.xmin,this.ymax]);return r}_edge(t,i,e,n,s){for(;i!==e;){let e,l;switch(i){case 5:i=4;continue;case 4:i=6,e=this.xmax,l=this.ymin;break;case 6:i=2;continue;case 2:i=10,e=this.xmax,l=this.ymax;break;case 10:i=8;continue;case 8:i=9,e=this.xmin,l=this.ymax;break;case 9:i=1;continue;case 1:i=5,e=this.xmin,l=this.ymin}n[s]===e&&n[s+1]===l||!this.contains(t,e,l)||(n.splice(s,0,e,l),s+=2)}return s}_project(t,i,e,n){let s,l,h,r=1/0;if(n<0){if(i<=this.ymin)return null;(s=(this.ymin-i)/n)<r&&(h=this.ymin,l=t+(r=s)*e)}else if(n>0){if(i>=this.ymax)return null;(s=(this.ymax-i)/n)<r&&(h=this.ymax,l=t+(r=s)*e)}if(e>0){if(t>=this.xmax)return null;(s=(this.xmax-t)/e)<r&&(l=this.xmax,h=i+(r=s)*n)}else if(e<0){if(t<=this.xmin)return null;(s=(this.xmin-t)/e)<r&&(l=this.xmin,h=i+(r=s)*n)}return[l,h]}_edgecode(t,i){return(t===this.xmin?1:t===this.xmax?2:0)|(i===this.ymin?4:i===this.ymax?8:0)}_regioncode(t,i){return(t<this.xmin?1:t>this.xmax?2:0)|(i<this.ymin?4:i>this.ymax?8:0)}_simplify(t){if(t&&t.length>4){for(let i=0;i<t.length;i+=2){const e=(i+2)%t.length,n=(i+4)%t.length;(t[i]===t[e]&&t[e]===t[n]||t[i+1]===t[e+1]&&t[e+1]===t[n+1])&&(t.splice(e,2),i-=2)}t.length||(t=null)}return t}}const M=2*Math.PI,A=Math.pow;function k(t){return t[0]}function $(t){return t[1]}function P(t,i,e){return[t+Math.sin(t+i)*e,i+Math.cos(t-i)*e]}class S{static from(t,i=k,e=$,n){return new S("length"in t?function(t,i,e,n){const s=t.length,l=new Float64Array(2*s);for(let h=0;h<s;++h){const s=t[h];l[2*h]=i.call(n,s,h,t),l[2*h+1]=e.call(n,s,h,t)}return l}(t,i,e,n):Float64Array.from(function*(t,i,e,n){let s=0;for(const l of t)yield i.call(n,l,s,t),yield e.call(n,l,s,t),++s}(t,i,e,n)))}constructor(t){this._delaunator=new f(t),this.inedges=new Int32Array(t.length/2),this._hullIndex=new Int32Array(t.length/2),this.points=this._delaunator.coords,this._init()}update(){return this._delaunator.update(),this._init(),this}_init(){const t=this._delaunator,i=this.points;if(t.hull&&t.hull.length>2&&function(t){const{triangles:i,coords:e}=t;for(let t=0;t<i.length;t+=3){const n=2*i[t],s=2*i[t+1],l=2*i[t+2];if((e[l]-e[n])*(e[s+1]-e[n+1])-(e[s]-e[n])*(e[l+1]-e[n+1])>1e-10)return!1}return!0}(t)){this.collinear=Int32Array.from({length:i.length/2},((t,i)=>i)).sort(((t,e)=>i[2*t]-i[2*e]||i[2*t+1]-i[2*e+1]));const t=this.collinear[0],e=this.collinear[this.collinear.length-1],n=[i[2*t],i[2*t+1],i[2*e],i[2*e+1]],s=1e-8*Math.hypot(n[3]-n[1],n[2]-n[0]);for(let t=0,e=i.length/2;t<e;++t){const e=P(i[2*t],i[2*t+1],s);i[2*t]=e[0],i[2*t+1]=e[1]}this._delaunator=new f(i)}else delete this.collinear;const e=this.halfedges=this._delaunator.halfedges,n=this.hull=this._delaunator.hull,s=this.triangles=this._delaunator.triangles,l=this.inedges.fill(-1),h=this._hullIndex.fill(-1);for(let t=0,i=e.length;t<i;++t){const i=s[t%3==2?t-2:t+1];-1!==e[t]&&-1!==l[i]||(l[i]=t)}for(let t=0,i=n.length;t<i;++t)h[n[t]]=t;n.length<=2&&n.length>0&&(this.triangles=new Int32Array(3).fill(-1),this.halfedges=new Int32Array(3).fill(-1),this.triangles[0]=n[0],l[n[0]]=1,2===n.length&&(l[n[1]]=0,this.triangles[1]=n[1],this.triangles[2]=n[1]))}voronoi(t){return new T(this,t)}*neighbors(t){const{inedges:i,hull:e,_hullIndex:n,halfedges:s,triangles:l,collinear:h}=this;if(h){const i=h.indexOf(t);return i>0&&(yield h[i-1]),void(i<h.length-1&&(yield h[i+1]))}const r=i[t];if(-1===r)return;let o=r,a=-1;do{if(yield a=l[o],o=o%3==2?o-2:o+1,l[o]!==t)return;if(o=s[o],-1===o){const i=e[(n[t]+1)%e.length];return void(i!==a&&(yield i))}}while(o!==r)}find(t,i,e=0){if((t=+t)!=t||(i=+i)!=i)return-1;const n=e;let s;for(;(s=this._step(e,t,i))>=0&&s!==e&&s!==n;)e=s;return s}_step(t,i,e){const{inedges:n,hull:s,_hullIndex:l,halfedges:h,triangles:r,points:o}=this;if(-1===n[t]||!o.length)return(t+1)%(o.length>>1);let a=t,c=A(i-o[2*t],2)+A(e-o[2*t+1],2);const u=n[t];let f=u;do{let n=r[f];const u=A(i-o[2*n],2)+A(e-o[2*n+1],2);if(u<c&&(c=u,a=n),f=f%3==2?f-2:f+1,r[f]!==t)break;if(f=h[f],-1===f){if(f=s[(l[t]+1)%s.length],f!==n&&A(i-o[2*f],2)+A(e-o[2*f+1],2)<c)return f;break}}while(f!==u);return a}render(t){const i=null==t?t=new v:void 0,{points:e,halfedges:n,triangles:s}=this;for(let i=0,l=n.length;i<l;++i){const l=n[i];if(l<i)continue;const h=2*s[i],r=2*s[l];t.moveTo(e[h],e[h+1]),t.lineTo(e[r],e[r+1])}return this.renderHull(t),i&&i.value()}renderPoints(t,i){void 0!==i||t&&"function"==typeof t.moveTo||(i=t,t=null),i=null==i?2:+i;const e=null==t?t=new v:void 0,{points:n}=this;for(let e=0,s=n.length;e<s;e+=2){const s=n[e],l=n[e+1];t.moveTo(s+i,l),t.arc(s,l,i,0,M)}return e&&e.value()}renderHull(t){const i=null==t?t=new v:void 0,{hull:e,points:n}=this,s=2*e[0],l=e.length;t.moveTo(n[s],n[s+1]);for(let i=1;i<l;++i){const s=2*e[i];t.lineTo(n[s],n[s+1])}return t.closePath(),i&&i.value()}hullPolygon(){const t=new b;return this.renderHull(t),t.value()}renderTriangle(t,i){const e=null==i?i=new v:void 0,{points:n,triangles:s}=this,l=2*s[t*=3],h=2*s[t+1],r=2*s[t+2];return i.moveTo(n[l],n[l+1]),i.lineTo(n[h],n[h+1]),i.lineTo(n[r],n[r+1]),i.closePath(),e&&e.value()}*trianglePolygons(){const{triangles:t}=this;for(let i=0,e=t.length/3;i<e;++i)yield this.trianglePolygon(i)}trianglePolygon(t){const i=new b;return this.renderTriangle(t,i),i.value()}}t.Delaunay=S,t.Voronoi=T,Object.defineProperty(t,"__esModule",{value:!0})}));
+</script>
+<style>
+:root{--plum:#570A57;--plum2:#3D0640;--pink:#E0287F;--pink-soft:#FFE6F2;--gold:#F4A21B;--gold-soft:#FFF1D9;--bg:#F7F1F7;--panel:#FFFFFF;--ink:#2A1630;--muted:#6E5C73;--line:#EBDDEB;
+ --ok:#1E8E4E;--ok-soft:#E3F5EA;--bad:#C0283F;--bad-soft:#FDE6EA;--warn:#B8690E;--warn-soft:#FFF0DA;
+ --wa:#075E54;--wa-bg:#EFE7DE;--wa-me:#DCF8C6;--wa-btn:#00A884;--rider:#1F2B3A;--rider-bg:#F3F5F8;
+ --f:"Mukta","Noto Sans Devanagari","Segoe UI",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);font-family:var(--f);color:var(--ink);font-size:14.5px;line-height:1.45}
+button{font-family:inherit}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.top{background:var(--plum);color:#fff;padding:12px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.top img{width:42px;height:42px;border-radius:11px}
+.top h1{margin:0;font-size:21px;line-height:1.1}
+.top p{margin:0;font-size:13px;opacity:.85}
+.tabs{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);display:flex;gap:6px;overflow-x:auto;padding:8px 16px}
+.tab{flex:none;display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 14px 5px 5px;cursor:pointer;font-weight:700;font-size:13.5px;color:var(--ink)}
+.tab b{width:26px;height:26px;border-radius:50%;background:var(--gold);color:var(--plum);display:grid;place-items:center;font-size:13px}
+.tab[aria-selected="true"]{background:var(--plum);color:#fff;border-color:var(--plum)}
+.wrap{max-width:1360px;margin:0 auto;padding:18px 16px 40px}
+.head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px}
+.head h2{margin:0;font-size:24px;color:var(--plum);line-height:1.15}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--gold-soft);color:var(--warn)}
+.pill.p{background:var(--pink-soft);color:var(--pink)}.pill.g{background:var(--ok-soft);color:var(--ok)}.pill.r{background:var(--bad-soft);color:var(--bad)}
+.head p{flex-basis:100%;margin:0;color:var(--muted);max-width:95ch}
+.grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr) minmax(0,330px);gap:18px;align-items:start}
+@media (max-width:1180px){.grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.grid>.mid{grid-column:1/-1;order:-1}}
+@media (max-width:720px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel h3{margin:0;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.mid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;min-width:0}
+.devcol{display:flex;flex-direction:column;align-items:center;gap:8px}
+.devlbl{font-weight:800;font-size:13.5px;color:var(--plum);display:flex;align-items:center;gap:6px}
+.devlbl span{font-weight:500;color:var(--muted);font-size:12.5px}
+/* stages */
+.stages{display:flex;gap:3px;flex-wrap:wrap}
+.stg{flex:1 1 90px;min-width:84px;background:#EFE4EF;color:var(--muted);padding:6px 14px 6px 10px;font-size:12px;line-height:1.25;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,0 100%,8px 50%)}
+.stg:first-child{clip-path:polygon(0 0,calc(100% - 8px) 0,100% 50%,calc(100% - 8px) 100%,0 100%)}
+.stg b{display:block;font-size:12.5px;color:var(--ink)}
+.stg.done{background:var(--plum);color:#E8D2E8}.stg.done b{color:#fff}
+.stg.now{background:var(--pink);color:#FFE3F0}.stg.now b{color:#fff}
+/* small UI */
+.flags{display:flex;flex-direction:column;gap:6px}
+.flag{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:12px;padding:7px 10px;cursor:pointer;background:#fff;text-align:left;font-size:13.5px;color:var(--ink)}
+.flag i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#F1E8F1;color:var(--muted);font-style:normal;font-weight:800;flex:none}
+.flag[aria-pressed="true"]{border-color:var(--plum);background:#FBF5FB}.flag[aria-pressed="true"] i{background:var(--plum);color:#fff}
+.verdict{border-radius:12px;padding:10px 12px;font-size:13.5px}
+.verdict b{display:block;font-size:15px}
+.verdict.ok{background:var(--ok-soft);color:#155C34}.verdict.bad{background:var(--bad-soft);color:#8A1428}.verdict.warn{background:var(--warn-soft);color:#7A4507}.verdict.n{background:#F3EDF3;color:var(--ink)}
+.ctl{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.ctl label{display:flex;justify-content:space-between;gap:8px;font-weight:600;color:var(--muted)}
+.ctl label b{font-family:var(--mono);color:var(--plum);font-size:12.5px}
+input[type=range]{width:100%;accent-color:var(--pink)}
+select,input[type=number],input[type=text],input[type=tel]{font:inherit;font-size:13.5px;padding:6px 8px;border:1.5px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);width:100%}
+.tog{display:flex;align-items:center;gap:10px;font-size:13.5px;cursor:pointer}
+.tog input{accent-color:var(--pink);width:17px;height:17px}
+.btn{border:1.5px solid var(--plum);background:#fff;color:var(--plum);font-weight:700;border-radius:10px;padding:8px 12px;cursor:pointer;font-size:13.5px}
+.btn.solid{background:var(--plum);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13px}.kv dt{color:var(--muted)}.kv dd{margin:0;font-weight:600}
+.log{display:flex;flex-direction:column;gap:6px;max-height:300px;overflow:auto}
+.log div{font-size:12.5px;background:#F7F1F7;border-radius:9px;padding:6px 9px;border-left:3px solid var(--plum)}
+.log div.g{border-left-color:var(--ok)}.log div.r{border-left-color:var(--bad)}.log div.w{border-left-color:var(--gold)}
+.log time{font-family:var(--mono);font-size:11px;color:var(--muted);margin-right:6px}
+.rules{display:grid;gap:8px}
+.rule{display:flex;gap:10px;align-items:flex-start;font-size:13px}
+.rule i{flex:none;width:30px;height:30px;border-radius:9px;background:var(--gold-soft);display:grid;place-items:center;font-style:normal;font-size:15px}
+.rule b{display:block;font-size:13.5px}
+.bars{display:flex;flex-direction:column;gap:6px;font-size:12.5px}
+.bar{display:grid;grid-template-columns:110px 1fr 38px;gap:8px;align-items:center}
+.bar s{display:block;height:10px;border-radius:6px;background:#EFE4EF;text-decoration:none;overflow:hidden}
+.bar s i{display:block;height:100%;background:var(--plum)}
+table.t{width:100%;border-collapse:collapse;font-size:12.5px}
+table.t th{text-align:left;color:var(--muted);font-weight:700;padding:5px 6px;border-bottom:1.5px solid var(--line)}
+table.t td{padding:5px 6px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+table.t tr.hit td{background:var(--pink-soft);font-weight:700}
+.mono{font-family:var(--mono)}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.s4{border-radius:10px;padding:7px;background:#F3EDF3;font-size:12px;line-height:1.3;min-width:0}
+.s4 b{display:block;font-size:12.5px}
+.s4.ok{background:var(--ok-soft)}.s4.bad{background:var(--bad-soft)}.s4.cur{background:var(--gold-soft)}
+.big{font-size:28px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.tile{border:1px solid var(--line);border-radius:12px;padding:9px 10px}
+.tile small{display:block;color:var(--muted);font-size:11.5px;font-weight:600}
+/* phones */
+.phone{width:306px;max-width:100%;height:690px;border:11px solid #170A19;border-radius:42px;background:#000;overflow:hidden;position:relative;box-shadow:0 24px 50px rgba(60,10,60,.22);flex:none}
+.scr{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff;color:#2A1630}
+.sb{height:26px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 18px;color:#fff;font-size:12px;font-weight:600}
+.notif{position:absolute;left:8px;right:8px;top:30px;background:rgba(255,255,255,.98);border-radius:15px;padding:9px 11px;display:flex;gap:9px;align-items:center;box-shadow:0 10px 28px rgba(0,0,0,.28);font-size:12.5px;z-index:9;cursor:pointer;animation:drop .3s ease}
+.notif img{width:32px;height:32px;border-radius:9px;flex:none}
+@keyframes drop{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
+/* WhatsApp */
+.wa .sb{background:var(--wa)}
+.wabar{background:var(--wa);color:#fff;display:flex;align-items:center;gap:9px;padding:7px 11px 9px;flex:none}
+.wabar img{width:36px;height:36px;border-radius:50%;background:#fff}
+.wabar b{font-size:15px;display:flex;align-items:center;gap:5px}.wabar small{display:block;font-size:11.5px;opacity:.85}
+.tick{width:14px;height:14px;border-radius:50%;background:#25D366;display:inline-grid;place-items:center}
+.chat{flex:1;overflow-y:auto;background:var(--wa-bg);background-image:radial-gradient(rgba(0,0,0,.035) 1px,transparent 1px);background-size:14px 14px;padding:10px 9px 14px;display:flex;flex-direction:column;gap:6px}
+.chat>*{flex-shrink:0}
+.day{align-self:center;background:#E1F2FB;color:#4A5A62;font-size:11.5px;padding:2px 9px;border-radius:7px}
+.msg{background:#fff;border-radius:0 10px 10px 10px;max-width:88%;box-shadow:0 1px .5px rgba(0,0,0,.13);font-size:14px;line-height:1.45;overflow:hidden}
+.msg .in{padding:7px 10px 3px}
+.msg time{display:block;text-align:right;font-size:10.5px;color:#8696A0;padding:0 8px 4px}
+.msg.me{align-self:flex-end;background:var(--wa-me);border-radius:10px 0 10px 10px}
+.msg.me time::after{content:" ✓✓";color:#53BDEB}
+.mhdr{background:linear-gradient(135deg,var(--plum),#8A1A7E);color:#fff;padding:10px;display:flex;gap:9px;align-items:center}
+.mhdr img{width:40px;height:40px;border-radius:10px}.mhdr b{font-size:14px;display:block}.mhdr small{font-size:11.5px;opacity:.9}
+.r2{display:flex;gap:7px;margin:2px 0}.r2 span:first-child{width:18px;flex:none;text-align:center}
+.foot{font-size:11.5px;color:#8696A0;padding:0 10px 2px}
+.wbtns{display:flex;flex-direction:column;max-width:88%;border-radius:0 0 10px 10px;margin-top:-6px;box-shadow:0 1px .5px rgba(0,0,0,.13);overflow:hidden}
+.wbtns button{background:#fff;border:0;border-top:1px solid #E9EDEF;color:var(--wa-btn);font-weight:600;font-size:14px;padding:9px;cursor:pointer}
+.wbtns button:disabled{color:#AAB4B9;cursor:default}
+.lnk{margin:6px 8px 4px;border-radius:8px;background:#F5F6F6;overflow:hidden;cursor:pointer}
+.lnk .ban{height:78px;background:linear-gradient(135deg,var(--pink),var(--plum));display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-weight:700;font-size:15px}
+.lnk .ban img{width:40px;height:40px;border-radius:10px}
+.lnk .tx{padding:6px 9px;font-size:12.5px;color:#667781}.lnk .tx b{display:block;color:#111;font-size:13px}
+.url{color:#027EB5;text-decoration:underline;cursor:pointer;word-break:break-all}
+.wain{flex:none;background:var(--wa-bg);padding:5px 8px 9px;display:flex;gap:6px;align-items:center}
+.wain div{flex:1;background:#fff;border-radius:20px;padding:8px 13px;color:#8696A0;font-size:13.5px}
+.wain span{width:38px;height:38px;border-radius:50%;background:var(--wa-btn)}
+/* Meesho app */
+.ma .sb{background:var(--plum2)}
+.mbar{background:#fff;display:flex;align-items:center;gap:9px;padding:9px 12px;border-bottom:1px solid #EFE5EF;flex:none}
+.mbar img{width:28px;height:28px;border-radius:8px}.mbar b{font-size:16px}
+.mbody{flex:1;overflow-y:auto;background:#FBF7FB;padding:12px;display:flex;flex-direction:column;gap:11px}
+.mbody>*{flex-shrink:0}
+.card{background:#fff;border-radius:13px;border:1px solid #F0E4EF;padding:11px}
+.lbl{font-size:12.5px;color:var(--muted)}
+.h{font-size:15px;font-weight:700;margin:0}
+.ord{display:flex;gap:11px;align-items:center}
+.thumb{width:50px;height:60px;border-radius:9px;background:linear-gradient(160deg,#FFC1DC,#E0287F 70%,#A8166A);flex:none}
+.cta{flex:none;padding:10px 12px 14px;background:#fff;border-top:1px solid #EFE5EF}
+.pbtn{width:100%;border:0;border-radius:12px;background:var(--pink);color:#fff;font-weight:700;font-size:15.5px;padding:13px;cursor:pointer}
+.pbtn:disabled{background:#F1B5D3;cursor:not-allowed}
+.gbtn{width:100%;border:1.5px solid var(--plum);background:#fff;color:var(--plum);border-radius:12px;font-weight:700;font-size:14.5px;padding:11px;cursor:pointer}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid #E8D8E6;border-radius:11px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:9px;font-weight:700;font-size:13.5px;cursor:pointer;color:var(--ink)}
+.seg button[aria-pressed="true"]{background:var(--pink);color:#fff}
+.dates{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.dbtn{border:1.5px solid #E8D8E6;background:#fff;border-radius:11px;padding:7px 3px;text-align:center;cursor:pointer;color:var(--ink)}
+.dbtn small{display:block;font-size:11.5px;color:var(--muted);font-weight:600}.dbtn b{display:block;font-size:20px;line-height:1.1}.dbtn em{display:block;font-style:normal;font-size:10.5px;color:var(--muted)}
+.dbtn[aria-pressed="true"]{border-color:var(--pink);background:var(--pink-soft)}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.sbtn{border:1.5px solid #E8D8E6;background:#fff;border-radius:11px;padding:8px 9px;text-align:left;cursor:pointer;color:var(--ink)}
+.sbtn b{display:block;font-size:14px}.sbtn small{font-size:11.5px;color:var(--muted)}
+.sbtn[aria-pressed="true"]{border-color:var(--pink);background:var(--pink-soft)}
+.cap{height:4px;border-radius:3px;background:#F1E6F0;margin-top:5px;overflow:hidden}.cap i{display:block;height:100%;background:var(--pink)}
+.note{display:flex;gap:8px;background:#F1F9F4;color:#1E6B40;border-radius:11px;padding:9px 11px;font-size:12.5px}
+.note.w{background:var(--warn-soft);color:#7A4507}.note.r{background:var(--bad-soft);color:#8A1428}
+.pay{display:flex;align-items:center;gap:9px;border:1.5px solid #ECE3EE;border-radius:11px;padding:10px 11px;background:#fff;cursor:pointer;font-weight:600;font-size:13.5px}
+.pay[aria-checked="true"]{border-color:var(--pink);background:var(--pink-soft)}
+.pay .rr{width:17px;height:17px;border-radius:50%;border:2px solid #C9B3CF;flex:none}
+.pay[aria-checked="true"] .rr{border:6px solid var(--pink)}
+.pay .amt{margin-left:auto;font-weight:800}
+.save{background:#E3F5E9;color:#1C7A4A;border-radius:10px;padding:7px 10px;font-size:12.5px;font-weight:700}
+.done{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:20px;text-align:center}
+.okc{width:84px;height:84px;border-radius:50%;background:var(--pink-soft);display:grid;place-items:center}
+.okc div{width:56px;height:56px;border-radius:50%;background:var(--pink);display:grid;place-items:center;color:#fff;font-size:28px;font-weight:800}
+.okc.r{background:var(--bad-soft)}.okc.r div{background:var(--bad)}
+/* rider */
+.rd .sb{background:var(--rider)}
+.rbar{background:var(--rider);color:#fff;display:flex;align-items:center;gap:9px;padding:9px 12px;flex:none}
+.rbar b{font-size:15.5px;display:block}.rbar small{font-size:11.5px;opacity:.8}
+.rbody{flex:1;overflow-y:auto;background:var(--rider-bg);padding:12px;display:flex;flex-direction:column;gap:10px}
+.rbody>*{flex-shrink:0}
+.rbtn{width:100%;border:0;border-radius:13px;padding:13px;font-weight:800;font-size:15.5px;cursor:pointer;display:flex;gap:8px;align-items:center;justify-content:center}
+.rbtn.ok{background:#1E8E4E;color:#fff}.rbtn.no{background:#fff;color:var(--bad);border:2px solid #F2C4CC}.rbtn.am{background:var(--gold);color:var(--rider)}.rbtn.dk{background:var(--rider);color:#fff}
+.reasons{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.reasons button{background:#fff;border:1.5px solid #E1E6EC;border-radius:13px;padding:12px 6px;font-weight:700;font-size:13px;color:var(--rider);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px}
+.reasons button span{font-size:22px}
+.reasons button:last-child:nth-child(odd){grid-column:1/-1}
+.ri{border-radius:13px;padding:11px 12px;font-size:13.5px}
+.ri b{display:block;font-size:15px}
+.ri.ok{background:var(--ok-soft);color:#155C34}.ri.bad{background:var(--bad-soft);color:#8A1428}.ri.warn{background:var(--warn-soft);color:#7A4507}
+/* kirana */
+.kp .sb{background:#0F5C4A}
+.kbar{background:#0F5C4A;color:#fff;display:flex;align-items:center;gap:9px;padding:9px 12px;flex:none}
+.kbar b{font-size:15px;display:block}.kbar small{font-size:11.5px;opacity:.85}
+.kbody{flex:1;overflow-y:auto;background:#F2F7F5;padding:11px;display:flex;flex-direction:column;gap:9px}
+.kbody>*{flex-shrink:0}
+.pcl{background:#fff;border:1px solid #DCE9E4;border-radius:12px;padding:9px 10px}
+.dw{height:6px;border-radius:4px;background:#E3EEEA;overflow:hidden;margin-top:5px}.dw i{display:block;height:100%}
+/* map */
+.mapbox{position:relative;border-radius:12px;overflow:hidden;touch-action:none;user-select:none;background:#EEF0E8}
+.mapbox svg{display:block;width:100%;height:auto}
+.mtag{position:absolute;left:7px;top:7px;background:#fff;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.dp{font-family:var(--mono);font-size:15px;font-weight:600;letter-spacing:.04em}
+.typing{align-self:flex-start;background:#fff;border-radius:0 10px 10px 10px;padding:9px 12px;display:flex;gap:4px}
+.typing i{width:7px;height:7px;border-radius:50%;background:#9AA5AB;animation:bb 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bb{0%,100%{opacity:.3}50%{opacity:1}}
+section[hidden]{display:none}
+@media (prefers-reduced-motion:reduce){.notif,.typing i{animation:none}}
+</style></head>
+<body>
+<header class="top"><img src="data:image/png;base64,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" alt="Meesho logo"><div><h1>Valmo RTO prototypes · six solutions</h1><p>Case Consigliere · IIT Kharagpur · Meesho DICE Challenge S3 · built from the operational framework. WhatsApp in Hindi, apps in English.</p></div></header>
+<nav class="tabs" id="tabs" role="tablist"></nav>
+<main class="wrap">
+
+<!-- =================== 1 =================== -->
+<section id="t1">
+ <div class="head"><h2>1 · Pre-delivery confirm: availability check + in-app reschedule</h2><span class="pill">Customer not reachable · 30% of RTO</span><span class="pill g">−0.60 pp</span>
+ <p>Sent when the parcel reaches the last-mile hub (LMDC), only to orders where any 2 of 5 flags fire. One WhatsApp asks if the buyer is available in the planned slot. She can say yes, or open the Meesho app to reschedule. Replies close at 21:00, and the 05:00 manifest is built by slot.</p></div>
+ <div class="stages" id="t1-st" style="margin-bottom:14px"></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Who gets it · any 2 of 5 flags</h3><div class="flags" id="t1-flags"></div><div id="t1-verdict"></div>
+   <h3>Demo controls</h3>
+   <label class="tog"><input type="checkbox" id="t1-multi">Second parcel for the same buyer</label>
+   <label class="tog"><input type="checkbox" id="t1-late">Buyer replies after 21:00</label>
+   <div class="row"><button class="btn solid" id="t1-arrive">Parcel arrives at LMDC</button><button class="btn" id="t1-silent">Buyer never replies</button></div>
+   <button class="btn" id="t1-reset">↺ Reset</button>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Buyer's phone <span>WhatsApp → Meesho app</span></div><div class="phone" id="t1-ph"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Rules built into the flow</h3>
+   <div class="rules">
+    <div class="rule"><i>📊</i><div><b>70% slot cap</b>Only slots with spare capacity appear in the app.</div></div>
+    <div class="rule"><i>📦</i><div><b>Both or neither</b>Two parcels for one buyer reschedule together.</div></div>
+    <div class="rule"><i>1️⃣</i><div><b>One reschedule</b>Up to 3 days, held at the hub, no reverse cost.</div></div>
+    <div class="rule"><i>🔕</i><div><b>No reply = no change</b>Parcel goes out as planned. Cost ₹0.20.</div></div>
+    <div class="rule"><i>🏠</i><div><b>Address change: in the app only</b>No message prompts it (see tab 6).</div></div>
+   </div>
+   <h3>How buyers reply (modelled)</h3>
+   <div class="bars"><div class="bar"><span>Yes, I'll be there</span><s><i style="width:27%"></i></s><b>27%</b></div><div class="bar"><span>Reschedule in app</span><s><i style="width:15%;background:var(--pink)"></i></s><b>15%</b></div><div class="bar"><span>No reply</span><s><i style="width:58%;background:#D9C7D9"></i></s><b>58%</b></div></div>
+   <h3>System log</h3><div class="log" id="t1-log"></div>
+  </div>
+ </div>
+</section>
+
+<!-- =================== 2 =================== -->
+<section id="t2" hidden>
+ <div class="head"><h2>2 · DIGIPIN captured at checkout, plus geocode routing</h2><span class="pill">Address unclear / wrong hub · 27% of RTO</span><span class="pill g">−2.20 pp</span>
+ <p>At checkout the buyer says who the order is for. Self (72%): one draggable map pin, no login, DIGIPIN written to the order. Someone else (15.4%): the recipient gets a request and drops their own pin. It's one-way, so the buyer only sees "Address confirmed". No response in 12 hours (12.6%): the order falls back to the saved address. At destination sort, the DIGIPIN routes the parcel to the right hub.</p></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Capture paths</h3>
+   <table class="t" id="t2-paths"><thead><tr><th>Path</th><th>Share</th><th>Error</th></tr></thead><tbody>
+    <tr data-p="self"><td>Self · live pin</td><td>72.0%</td><td>35% → 6%</td></tr>
+    <tr data-p="conf"><td>Other · recipient confirms</td><td>15.4%</td><td>35% → 7%</td></tr>
+    <tr data-p="none"><td>Other · no response, saved address</td><td>12.6%</td><td>35% → 14%</td></tr>
+    <tr><td><b>Blended</b></td><td>100%</td><td><b>35% → 7.2%</b></td></tr></tbody></table>
+   <h3>Demo controls</h3>
+   <button class="btn" id="t2-12h" disabled>12 hours pass with no reply</button>
+   <label class="tog"><input type="checkbox" id="t2-hist" checked>Saved address was delivered to before</label>
+   <button class="btn" id="t2-reset">↺ Reset</button>
+   <div class="verdict n"><b>One-way by design</b>The recipient sees who is sending and can decline. The buyer never sees the returned coordinate, only that it is confirmed.</div>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Priya (buyer) <span>Meesho app</span></div><div class="phone" id="t2-buyer"></div></div>
+   <div class="devcol"><div class="devlbl">Rohan (recipient) <span>WhatsApp</span></div><div class="phone" id="t2-rec"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Routing at destination sort · fixes the "wrong hub" half</h3>
+   <div class="mapbox" id="t2-map"></div>
+   <div class="ctl"><label>Hub picked from the typed pincode</label><select id="t2-typed"></select></div>
+   <button class="btn solid" id="t2-scan" disabled>Scan parcel at sort</button>
+   <div class="steps4" id="t2-steps"></div><div id="t2-res"></div>
+   <h3>System log</h3><div class="log" id="t2-log"></div>
+  </div>
+ </div>
+</section>
+
+<!-- =================== 3 =================== -->
+<section id="t3" hidden>
+ <div class="head"><h2>3 · CoD risk score: evidence, not a ratio</h2><span class="pill">CoD refusal · 25% of RTO</span><span class="pill g">−0.69 pp</span>
+ <p>s = (refusals + α) ÷ (total CoD orders + k), with α = 1.06, k = 20 and m = 5.3%. It's never applied below 5 real CoD orders. Damaged or wrong items, and refusals the buyer denies, never count. Controls come in four graduated tiers, and there is always a way back.</p></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Buyer history</h3>
+   <div class="row" id="t3-ex"></div>
+   <div class="ctl"><label>CoD refusals</label><input type="number" id="t3-ref" min="0" value="6"></div>
+   <div class="ctl"><label>CoD orders accepted</label><input type="number" id="t3-acc" min="0" value="9"></div>
+   <div class="ctl"><label>Months since the refusals <b id="t3-mv"></b></label><input type="range" id="t3-mo" min="0" max="36" value="0"></div>
+   <div class="ctl"><label>Refusals that don't count (damaged, wrong item, buyer denied)</label><input type="number" id="t3-exc" min="0" value="0"></div>
+   <div class="ctl"><label>Prepaid deliveries since restriction</label><input type="number" id="t3-pre" min="0" value="0"></div>
+   <div class="ctl"><label>Trial CoD orders · refusals in trial</label><div class="row" style="flex-wrap:nowrap"><input type="number" id="t3-tr" min="0" value="0"><input type="number" id="t3-trr" min="0" value="0"></div></div>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Buyer's checkout <span>Meesho app</span></div><div class="phone" id="t3-ph"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Score engine</h3>
+   <div class="tiles"><div class="tile"><small>Raw ratio</small><span class="big" id="t3-raw"></span></div><div class="tile"><small>Smoothed score s</small><span class="big" id="t3-s" style="color:var(--pink)"></span></div></div>
+   <div class="mono" style="font-size:12px;background:#F7F1F7;border-radius:9px;padding:8px" id="t3-calc"></div>
+   <div id="t3-tiers" style="display:flex;flex-direction:column;gap:5px"></div>
+   <div class="verdict n" id="t3-back"></div>
+   <div class="verdict n"><b>Threshold 25%</b>Break-even = (70% churn × ₹400) ÷ (8 CoD orders × ₹170) = 20.6%. 25% gives a 1.2× margin.</div>
+  </div>
+ </div>
+</section>
+
+<!-- =================== 4 =================== -->
+<section id="t4" hidden>
+ <div class="head"><h2>4 · DIGIPIN check at "attempt failed"</h2><span class="pill">No real attempt · 13% of RTO</span><span class="pill g">−0.92 pp</span>
+ <p>When a rider taps any failure code, their location becomes a DIGIPIN and is compared with the delivery DIGIPIN. The limit is 150 m (dense urban), 200 m (semi-urban) or 250 m (rural), floored at 2× the GPS error. Inside the limit the failure is accepted; outside, the parcel stays live. There's no penalty either way. Three guards close the relabelling trap.</p></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Where is the rider?</h3>
+   <div class="ctl"><label>Area</label><select id="t4-area"><option value="150">Dense urban · 150 m</option><option value="200">Semi-urban · 200 m</option><option value="250">Rural · 250 m</option></select></div>
+   <div class="ctl"><label>Distance from the delivery DIGIPIN <b id="t4-dv"></b></label><input type="range" id="t4-d" min="0" max="2000" step="10" value="1200"></div>
+   <div class="row"><button class="btn" data-preset="40">At the door · 40 m</button><button class="btn" data-preset="1200">At the hub · 1.2 km</button></div>
+   <div class="ctl"><label>Reported GPS accuracy <b id="t4-av"></b></label><input type="range" id="t4-a" min="3" max="150" value="12"></div>
+   <label class="tog"><input type="checkbox" id="t4-mock">Mock-location app on</label>
+   <label class="tog"><input type="checkbox" id="t4-speed">Impossible speed since last scan</label>
+   <button class="btn" id="t4-reset">↺ Reset</button>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Rider <span>Valmo rider app</span></div><div class="phone" id="t4-rider"></div></div>
+   <div class="devcol"><div class="devlbl">Buyer <span>WhatsApp</span></div><div class="phone" id="t4-buyer"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Server-side gate</h3><div class="steps4" id="t4-steps"></div><div id="t4-res"></div>
+   <h3>The relabelling trap: three guards</h3>
+   <div class="rules">
+    <div class="rule"><i>💬</i><div><b>Confirm with the buyer</b>Message within 10 minutes. A denial reopens the parcel and flags the rider.</div></div>
+    <div class="rule"><i>📊</i><div><b>Benchmark against peers</b>Beyond 1.5σ of the cluster median → audit, not penalty.</div></div>
+    <div class="rule"><i>📷</i><div><b>Make the code costly</b>"Refused" needs a photo, from a fixed list with no free text.</div></div>
+   </div>
+   <table class="t" id="t4-peer"></table>
+  </div>
+ </div>
+</section>
+
+<!-- =================== 5 =================== -->
+<section id="t5" hidden>
+ <div class="head"><h2>5 · Kirana holding nodes</h2><span class="pill">Customer not reachable · Red lane only</span><span class="pill g">−0.65 pp</span>
+ <p>Red-lane parcels are pulled out at the last-mile hub and dropped together at a kirana (6–8 parcels, ₹8 each). The shop holds them for up to 72 hours, and the buyer walks 300–400 m to collect with an OTP and pay. It's deployed only where base RTO beats the 34.2% break-even.</p></div>
+ <div class="stages" id="t5-st" style="margin-bottom:14px"></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Where it's deployed</h3>
+   <div class="ctl"><label>Cohort</label><select id="t5-reg"><option value="15">Dense urban · all · 15%</option><option value="40">Semi-urban · Red lane · 40%</option><option value="46" selected>Rural · Red lane · 46%</option></select></div>
+   <div id="t5-elig"></div>
+   <h3>Partner selection · KANO-weighted</h3>
+   <table class="t" id="t5-kano"></table>
+   <p class="lbl" style="margin:0">Weights: basic ×1, performance ×1.2, excitement ×1.5. Edit scores to re-rank.</p>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Shop owner <span>Valmo Point app</span></div><div class="phone" id="t5-shop"></div></div>
+   <div class="devcol"><div class="devlbl">Buyer <span>WhatsApp</span></div><div class="phone" id="t5-buyer"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Shop controls</h3>
+   <div class="ctl"><label>Hours since drop <b id="t5-hv"></b></label><input type="range" id="t5-h" min="0" max="80" value="2"></div>
+   <div class="tiles"><div class="tile"><small>Cash float (cap ₹5,000)</small><span class="big" id="t5-float"></span></div><div class="tile"><small>Collected in 72 h (≥65%)</small><span class="big" id="t5-coll"></span></div></div>
+   <div id="t5-stat"></div>
+   <button class="btn" id="t5-reset">↺ Reset</button>
+   <h3>System log</h3><div class="log" id="t5-log"></div>
+  </div>
+ </div>
+</section>
+
+<!-- =================== 6 =================== -->
+<section id="t6" hidden>
+ <div class="head"><h2>6 · Address change, bounded by Voronoi cells</h2><span class="pill">Address unclear / wrong hub</span><span class="pill g">−0.80 pp</span>
+ <p>Only in the app, with no message prompting it. The buyer can move the delivery only into a hub cell that shares an edge with the current one, so the re-route is a lateral move with a known cost. The guardrails are adjacent cell only, one change, a 9 pm cut-off, and both-or-neither for multi-parcel stops.</p></div>
+ <div class="grid">
+  <div class="panel">
+   <h3>Guardrails</h3>
+   <div class="rules">
+    <div class="rule"><i>⇄</i><div><b>Adjacent cell only</b>Non-adjacent → free cancel offered.</div></div>
+    <div class="rule"><i>✋</i><div><b>One change</b>Per order, never two.</div></div>
+    <div class="rule"><i>🕘</i><div><b>9 pm cut-off</b>Manifest frozen after.</div></div>
+    <div class="rule"><i>📦</i><div><b>Both or neither</b>For multi-parcel stops.</div></div>
+   </div>
+   <h3>Demo controls</h3>
+   <div class="ctl"><label>Time now <b id="t6-tv"></b></label><input type="range" id="t6-t" min="1080" max="1380" step="10" value="1190"></div>
+   <label class="tog"><input type="checkbox" id="t6-multi">Two parcels on this stop</label>
+   <button class="btn" id="t6-reset">↺ Reset</button>
+  </div>
+  <div class="mid">
+   <div class="devcol"><div class="devlbl">Buyer <span>Meesho app · My orders</span></div><div class="phone" id="t6-ph"></div></div>
+  </div>
+  <div class="panel">
+   <h3>Behind the screen</h3>
+   <div class="steps4" id="t6-steps"></div>
+   <table class="t" id="t6-tab"><thead><tr><th></th><th>Short edge</th><th>Long edge</th></tr></thead><tbody>
+    <tr><td>Hub separation · boundary</td><td>4 km · 2 km</td><td>16 km · 8 km</td></tr>
+    <tr><td>New address lands in</td><td>0–2 km band</td><td>5–10 km band</td></tr>
+    <tr><td>RTO in that band</td><td>15%</td><td>24%</td></tr>
+    <tr><td>Lateral re-route cost</td><td>₹10</td><td>₹22</td></tr>
+    <tr><td>RTO if refused</td><td>85%</td><td>85%</td></tr>
+    <tr><td>Net per changed order</td><td><b>₹109</b></td><td><b>₹82</b></td></tr></tbody></table>
+   <h3>System log</h3><div class="log" id="t6-log"></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const LOGO=document.querySelector('.top img').src;
+const inr=n=>'₹'+Math.round(n).toLocaleString('en-IN');
+const pct=x=>(x*100).toFixed(1)+'%';
+function log(id,msg,cls='',t=''){const d=document.createElement('div');d.className=cls;d.innerHTML=`<time>${t}</time>${msg}`;$(id).prepend(d)}
+function hav(a,b){const R=6371000,r=x=>x*Math.PI/180,dl=r(b[0]-a[0]),dn=r(b[1]-a[1]);const h=Math.sin(dl/2)**2+Math.cos(r(a[0]))*Math.cos(r(b[0]))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+/* DIGIPIN — India Post open specification */
+const G=[['F','C','9','8'],['J','3','2','7'],['K','4','5','6'],['L','M','P','T']];
+function dpEnc(lat,lon){let a=2.5,b=38.5,c=63.5,d=99.5,s='';for(let l=1;l<=10;l++){const la=(b-a)/4,lo=(d-c)/4;let r=3-Math.floor((lat-a)/la),k=Math.floor((lon-c)/lo);r=Math.max(0,Math.min(3,r));k=Math.max(0,Math.min(3,k));s+=G[r][k];if(l===3||l===6)s+='-';b=a+la*(4-r);a=a+la*(3-r);c=c+lo*k;d=c+lo}return s}
+function dpDec(code){const c=code.replace(/-/g,'');let a=2.5,b=38.5,x=63.5,y=99.5;for(const ch of c){let r,k;for(let i=0;i<4;i++)for(let j=0;j<4;j++)if(G[i][j]===ch){r=i;k=j}const la=(b-a)/4,lo=(y-x)/4;const na=b-la*(r+1),nb=b-la*r,nx=x+lo*k,ny=x+lo*(k+1);a=na;b=nb;x=nx;y=ny}return[(a+b)/2,(x+y)/2]}
+
+/* shells */
+const SB=(t)=>`<div class="sb"><span>${t}</span><span>4G ▂▄▆ 82%</span></div>`;
+const WA=(t,name='Meesho',sub='बिज़नेस अकाउंट')=>`${SB(t)}<div class="wabar"><span style="font-size:20px">‹</span><img src="${LOGO}" alt=""><div style="flex:1"><b>${name} <span class="tick"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></b><small>${sub}</small></div><span>⋮</span></div>`;
+const WAIN='<div class="wain"><div>मैसेज</div><span></span></div>';
+const MA=(t,title,back=true)=>`${SB(t)}<div class="mbar">${back?'<span style="font-size:20px;cursor:pointer" data-back>‹</span>':''}<img src="${LOGO}" alt=""><b>${title}</b></div>`;
+const bub=(m)=>`<div class="msg ${m.me?'me':''}"><div class="in">${m.t}</div><time>${m.at||''}</time></div>`;
+function notif(ph,html){const n=document.createElement('div');n.className='notif';n.innerHTML=`<img src="${LOGO}" alt=""><div>${html}</div>`;ph.appendChild(n);setTimeout(()=>n.remove(),2800)}
+
+/* stylised neighbourhood map */
+function street(pin,extra=''){return `<svg viewBox="0 0 300 190"><rect width="300" height="190" fill="#EEF0E8"/><path d="M225 135 q30-18 75-9 v64 h-100 q8-34 25-55z" fill="#CFE6F2"/>
+<g fill="#E1E4D9">${[[8,8,76,46],[100,8,86,46],[202,8,90,46],[8,76,76,52],[100,76,54,52],[170,76,40,52],[8,146,76,40],[100,146,86,40]].map(b=>`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${b[3]}" rx="5"/>`).join('')}</g>
+<g stroke="#fff" stroke-width="11" stroke-linecap="round"><path d="M0 65 H300"/><path d="M92 0 V190"/><path d="M162 65 V190"/><path d="M0 137 H225"/><path d="M194 0 V65"/></g>
+<text x="104" y="98" style="font:600 8.5px var(--f);fill:#6D6B5E">Shiv Mandir</text><text x="18" y="30" style="font:600 8.5px var(--f);fill:#6D6B5E">Bazaar</text>
+${extra}${pin?`<g class="pinG" transform="translate(${pin[0]},${pin[1]})"><circle r="15" fill="#E0287F" opacity=".16"/><path d="M0 0c-6-8-10-11-10-17a10 10 0 0 1 20 0c0 6-4 9-10 17z" fill="#E0287F" stroke="#fff" stroke-width="2"/><circle cy="-17" r="3.6" fill="#fff"/></g>`:''}</svg>`}
+const HOME=[24.4905,86.7046],PX0=[130,100];
+const px2ll=p=>[HOME[0]-(p[1]-PX0[1])*0.0000185,HOME[1]+(p[0]-PX0[0])*0.0000205];
+function drag(box,cb,W=300,H=190){const svg=box.querySelector('svg');const mv=e=>{const r=svg.getBoundingClientRect();const p=[Math.max(6,Math.min(W-6,(e.clientX-r.left)/r.width*W)),Math.max(20,Math.min(H-4,(e.clientY-r.top)/r.height*H))];const g=svg.querySelector('.pinG');if(g)g.setAttribute('transform',`translate(${p[0]},${p[1]})`);cb(p)};
+ svg.addEventListener('pointerdown',e=>{svg.setPointerCapture(e.pointerId);mv(e);svg.onpointermove=mv});svg.addEventListener('pointerup',()=>svg.onpointermove=null)}
+
+/* Voronoi hubs (Deoghar sample) */
+const VB={lat0:24.40,lat1:24.56,lon0:86.60,lon1:86.80,W:320,H:280};
+const v2xy=([la,lo])=>[(lo-VB.lon0)/(VB.lon1-VB.lon0)*VB.W,(VB.lat1-la)/(VB.lat1-VB.lat0)*VB.H];
+const xy2v=([x,y])=>[VB.lat1-y/VB.H*(VB.lat1-VB.lat0),VB.lon0+x/VB.W*(VB.lon1-VB.lon0)];
+const HUBS=[{id:'H1',n:'Deoghar Central',ll:[24.486,86.700]},{id:'H2',n:'Jasidih',ll:[24.522,86.652]},{id:'H3',n:'Mohanpur',ll:[24.428,86.688]},{id:'H4',n:'Karnibad',ll:[24.470,86.735]},{id:'H5',n:'Rikhia',ll:[24.540,86.738]},{id:'H6',n:'Ghorlas',ll:[24.432,86.622]},{id:'H7',n:'Sarath Rd',ll:[24.418,86.775]},{id:'H8',n:'Devipur',ll:[24.553,86.612]},{id:'H9',n:'Palojori',ll:[24.404,86.640]},{id:'H10',n:'Madhupur Rd',ll:[24.548,86.790]}];
+HUBS.forEach(h=>h.xy=v2xy(h.ll));
+const DEL=d3.Delaunay.from(HUBS.map(h=>h.xy)),VOR=DEL.voronoi([0,0,VB.W,VB.H]);
+const cellOf=xy=>DEL.find(xy[0],xy[1]),nbrs=i=>[...VOR.neighbors(i)];
+const FILL=['#EBD8EE','#F7DCE7','#E2E0F4','#F4E5D3','#DDEDE3','#EEE7D6','#E6E9F5','#F3E1EC','#E4EEDD','#EFE3D8'];
+
+/* tabs */
+const TABS=['Pre-delivery confirm','DIGIPIN at checkout','CoD risk score','DIGIPIN gate','Kirana holding nodes','Address change'];
+$('#tabs').innerHTML=TABS.map((t,i)=>`<button class="tab" role="tab" data-t="${i+1}" aria-selected="${i===0}"><b>${i+1}</b>${t}</button>`).join('');
+$$('.tab').forEach(b=>b.onclick=()=>{$$('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));for(let i=1;i<=6;i++)$('#t'+i).hidden=String(i)!==b.dataset.t;window.scrollTo({top:0})});
+
+/* =====================================================
+   1 · PRE-DELIVERY CONFIRM
+   ===================================================== */
+const F1=[['🏠','First delivery to this address'],['#','No house number'],['🗺️','Worst-quartile pincode'],['₹','CoD over 2× usual basket'],['📍','Hub beyond 5 km']];
+const DAYS=[{d:'Tue',n:6,tag:'Tomorrow',hi:'मंगलवार, 6 अक्टूबर',en:'Tue 6 Oct'},{d:'Wed',n:7,tag:'',hi:'बुधवार, 7 अक्टूबर',en:'Wed 7 Oct'},{d:'Thu',n:8,tag:'',hi:'गुरुवार, 8 अक्टूबर',en:'Thu 8 Oct'},{d:'Fri',n:9,tag:'',hi:'शुक्रवार, 9 अक्टूबर',en:'Fri 9 Oct'}];
+const SL=[{en:'9 am – 12 pm',hi:'सुबह 9–12 बजे'},{en:'12 – 3 pm',hi:'दोपहर 12–3 बजे'},{en:'3 – 6 pm',hi:'दोपहर 3–6 बजे'},{en:'6 – 9 pm',hi:'शाम 6–9 बजे'}];
+const CAP=75; // committed slots offered per window (70% of 108)
+const BOOK=[[52,75,61,40],[75,44,58,75],[30,62,75,49],[22,35,41,55]]; // bookings per day × window
+let A;
+function a1reset(){A={flags:[true,true,false,false,true],stage:0,msgs:[],scr:'wa',day:null,slot:null,resched:0,done:false};$('#t1-log').innerHTML='';$('#t1-multi').checked=false;$('#t1-late').checked=false;a1render()}
+function a1stages(){const S=[['LMDC arrival','the trigger'],['WhatsApp','available 12–3 pm?'],['By 21:00','yes, or reschedule'],['05:00','manifest by slot'],['Delivery','in the confirmed slot']];
+ $('#t1-st').innerHTML=S.map((s,i)=>`<div class="stg ${i<A.stage?'done':i===A.stage?'now':''}"><b>${s[0]}</b>${s[1]}</div>`).join('')}
+function a1render(){
+ a1stages();
+ $('#t1-flags').innerHTML=F1.map((f,i)=>`<button class="flag" aria-pressed="${A.flags[i]}" data-i="${i}"><i>${f[0]}</i>${f[1]}</button>`).join('');
+ $$('#t1-flags .flag').forEach(b=>b.onclick=()=>{if(A.stage>0)return;A.flags[+b.dataset.i]=!A.flags[+b.dataset.i];a1render()});
+ const n=A.flags.filter(Boolean).length;
+ $('#t1-verdict').innerHTML=n>=2?`<div class="verdict ok"><b>${n} of 5 flags → treated</b>Joins the ~30% of the book that gets the message.</div>`:`<div class="verdict n"><b>${n} of 5 flags → not treated</b>No message. The parcel ships as planned.</div>`;
+ $('#t1-arrive').disabled=A.stage>0||n<2;$('#t1-silent').disabled=A.stage!==1||A.done;
+ const ph=$('#t1-ph');const multi=$('#t1-multi').checked;
+ if(A.scr==='wa'){
+  let h=`<div class="scr wa">${WA('4:20 PM')}<div class="chat" id="t1-chat"><div class="day">आज</div>`;
+  if(A.stage===0)h+=`<div class="foot" style="text-align:center;margin-top:40px">No message yet. It goes out when the parcel reaches the last-mile hub.</div>`;
+  else{
+   h+=`<div class="msg"><div class="mhdr"><img src="${LOGO}" alt=""><div><b>${multi?'आपके 2 पार्सल कल आ रहे हैं! 📦':'आपका ऑर्डर कल आ रहा है! 📦'}</b><small>ऑर्डर #MSH48213</small></div></div><div class="in">नमस्ते <b>सुनीता जी</b> 🙏<br>${multi?'आपके 2 पार्सल आपके नज़दीकी हब पर पहुँच गए हैं:':'आपका पार्सल आपके नज़दीकी हब पर पहुँच गया है:'}
+   <div class="r2"><span>👗</span><span>कॉटन कुर्ती सेट · <b>₹649</b> (COD)</span></div>${multi?'<div class="r2"><span>👟</span><span>स्पोर्ट्स शूज़ · <b>₹499</b> (COD)</span></div>':''}
+   <div class="r2"><span>🗓️</span><span><b>कल, मंगलवार 6 अक्टूबर</b></span></div><div class="r2"><span>🕒</span><span><b>दोपहर 12–3 बजे</b> के बीच</span></div><div class="r2"><span>📍</span><span>H-42, शिव मंदिर के पास, देवघर</span></div>
+   क्या आप इस समय उपलब्ध रहेंगी?</div><div class="foot">रात 9 बजे तक जवाब दें · जवाब ज़रूरी नहीं</div><time>4:20 PM</time></div>
+   <div class="wbtns"><button data-a="yes" ${A.done||A.resched?'disabled':''}>✅ हाँ, मैं उपलब्ध रहूँगी</button><button data-a="res" ${A.done||A.resched?'disabled':''}>📅 समय बदलें</button></div>`;
+   A.msgs.forEach(m=>h+=m.html||bub(m));if(A.typing)h+='<div class="typing"><i></i><i></i><i></i></div>';}
+  h+=`</div>${WAIN}</div>`;ph.innerHTML=h;const c=ph.querySelector('.chat');c.scrollTop=c.scrollHeight;
+  ph.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>a1act(b.dataset.a));ph.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>a1open());
+ } else if(A.scr==='app'){
+  const full=A.day===null?[]:[0,1,2,3].filter(i=>BOOK[A.day][i]>=CAP);
+  let h=`<div class="scr ma">${MA('4:22 PM','Reschedule delivery')}<div class="mbody">
+   <div class="card ord"><div class="thumb"></div><div><p class="h">Cotton Kurti Set</p><div class="lbl">Order #MSH48213</div><b>₹649</b> <span class="lbl">· Cash on delivery</span></div></div>
+   ${multi?`<div class="note w"><span>📦</span><span><b>2 parcels, one stop.</b> Both will move to the new time together.</span></div>`:''}
+   <div><div class="row" style="justify-content:space-between"><b>Choose a day</b><span class="lbl">up to 3 days later</span></div><div class="dates" style="margin-top:6px">${DAYS.map((d,i)=>`<button class="dbtn" aria-pressed="${A.day===i}" data-d="${i}"><small>${d.d}</small><b>${d.n}</b><em>${d.tag||'Oct'}</em></button>`).join('')}</div></div>
+   <div><div class="row" style="justify-content:space-between"><b>Choose a time</b><span class="lbl">${A.day===null?'pick a day first':full.length?full.length+' full slot'+(full.length>1?'s':'')+' hidden':'all slots open'}</span></div>
+   <div class="slots" style="margin-top:6px">${A.day===null?'<div class="lbl">—</div>':SL.map((s,i)=>full.includes(i)?'':`<button class="sbtn" aria-pressed="${A.slot===i}" data-s="${i}"><b>${s.en}</b><small>${CAP-BOOK[A.day][i]} left</small><div class="cap"><i style="width:${BOOK[A.day][i]/CAP*100}%"></i></div></button>`).join('')}</div></div>
+   <div class="note"><span>🛡️</span><span>Free. Your parcel waits safely at your local hub. You can reschedule once.</span></div>
+  </div><div class="cta"><button class="pbtn" id="t1-conf" ${A.day===null||A.slot===null?'disabled':''}>${A.day===null||A.slot===null?'Select a day and time':'Confirm · '+DAYS[A.day].en+', '+SL[A.slot].en}</button></div></div>`;
+  ph.innerHTML=h;
+  ph.querySelector('[data-back]').onclick=()=>{A.scr='wa';a1render()};
+  ph.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{A.day=+b.dataset.d;if(A.slot!==null&&BOOK[A.day][A.slot]>=CAP)A.slot=null;a1render()});
+  ph.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{A.slot=+b.dataset.s;a1render()});
+  ph.querySelector('#t1-conf').onclick=a1confirm;
+ } else if(A.scr==='ok'){
+  ph.innerHTML=`<div class="scr ma">${MA('4:23 PM','Reschedule delivery',false)}<div class="done"><div class="okc"><div>✓</div></div><h3 style="margin:0">Delivery rescheduled</h3><div class="card"><span class="lbl">Arriving</span><div class="h" style="color:var(--plum)">${DAYS[A.day].en} · ${SL[A.slot].en}</div></div><p class="lbl" style="margin:0">Confirmation sent on WhatsApp. Your OTP stays the same.</p><button class="gbtn" id="t1-back">Back to WhatsApp</button></div></div>`;
+  ph.querySelector('#t1-back').onclick=()=>{A.scr='wa';a1render()};
+ } else if(A.scr==='once'){
+  ph.innerHTML=`<div class="scr ma">${MA('4:30 PM','Reschedule delivery')}<div class="done"><div class="okc r"><div>1</div></div><h3 style="margin:0">Already rescheduled once</h3><p class="lbl" style="margin:0">Each order can be rescheduled one time. Your parcel arrives on <b>${DAYS[A.day].en}, ${SL[A.slot].en}</b>.</p><button class="gbtn" id="t1-back">Back to WhatsApp</button></div></div>`;
+  ph.querySelector('[data-back]').onclick=ph.querySelector('#t1-back').onclick=()=>{A.scr='wa';a1render()};
+ }
+}
+function a1typing(fn){A.typing=true;a1render();setTimeout(()=>{A.typing=false;fn();a1render()},800)}
+function a1act(a){
+ const late=$('#t1-late').checked,at=late?'9:14 PM':'4:26 PM';
+ if(a==='yes'){A.done=true;A.msgs.push({me:1,t:'✅ हाँ, मैं उपलब्ध रहूँगी',at});
+  if(late){a1typing(()=>A.msgs.push({t:'धन्यवाद! 🙏 आपका जवाब 9 बजे के बाद मिला, इसलिए पार्सल पहले से तय समय पर ही आएगा।',at}));log('#t1-log','Reply after 21:00: acknowledged, not actioned. Parcel proceeds as planned.','w','21:14');A.stage=3;return}
+  a1typing(()=>A.msgs.push({t:'धन्यवाद सुनीता जी! 🙏<br>आपका पार्सल <b>कल दोपहर 12–3 बजे</b> पहुँचेगा।<br>🔐 डिलीवरी OTP: <b>4821</b>',at}));
+  A.stage=3;log('#t1-log','Confirmed → address-confidence flag raised; manifest tag <b>Tue 12–3 pm</b>. Stays Green lane.','g','16:26');setTimeout(()=>{log('#t1-log',`05:00 manifest cut: parcel in the 12–3 pm group${$('#t1-multi').checked?' as one consolidated stop (2 parcels)':''}.`,'','05:00');A.stage=4;a1render()},1600)}
+ if(a==='res'){A.msgs.push({me:1,t:'📅 समय बदलें',at});
+  if(late){A.done=true;a1typing(()=>A.msgs.push({t:'माफ़ कीजिए, रात 9 बजे के बाद समय नहीं बदला जा सकता। पार्सल कल दोपहर 12–3 बजे ही आएगा।',at}));log('#t1-log','Reschedule tapped after 21:00 → refused, manifest frozen.','r','21:14');A.stage=3;return}
+  a1typing(()=>A.msgs.push({html:`<div class="msg"><div class="in">कोई बात नहीं! 😊 नीचे दिए लिंक पर टैप करें और Meesho ऐप में अपनी सुविधा का <b>दिन और समय</b> चुनें।<br><span class="url" data-open>meesho.com/r/MSH48213</span></div><div class="lnk" data-open><div class="ban"><img src="${LOGO}" alt="">डिलीवरी का समय चुनें</div><div class="tx"><b>Meesho · Reschedule delivery</b>meesho.com · ऐप में खुलेगा</div></div><div class="foot">लिंक रात 9 बजे तक मान्य</div><time>${at}</time></div><div class="wbtns"><button data-open>🔗 Meesho ऐप में खोलें</button></div>`}));
+  A.stage=2;log('#t1-log','Reschedule link sent (deep link into the Meesho app).','','16:26')}
+}
+function a1open(){if(A.resched){A.scr='once';a1render();return}A.scr='app';A.day=null;A.slot=null;a1render()}
+function a1confirm(){A.resched=1;BOOK[A.day][A.slot]+=($('#t1-multi').checked?2:1);A.scr='ok';const d=DAYS[A.day],s=SL[A.slot];
+ A.msgs.push({t:`✅ आपकी डिलीवरी का नया समय:<br>🗓️ <b>${d.hi}</b><br>🕒 <b>${s.hi}</b><br>${$('#t1-multi').checked?'📦 दोनों पार्सल एक साथ आएँगे।<br>':''}पार्सल तब तक हब पर सुरक्षित रहेगा। कोई शुल्क नहीं।<br>🔐 OTP: <b>4821</b>`,at:'4:23 PM'});
+ A.stage=3;log('#t1-log',`Rescheduled to <b>${d.en}, ${s.en}</b>${A.day>0?` → held at LMDC hold rack ${A.day} day(s), no reverse cost`:''}. Slot count ${BOOK[A.day][A.slot]}/${CAP}.${$('#t1-multi').checked?' Both parcels moved together.':''}`,'g','16:23');
+ a1render();notif($('#t1-ph'),'<b>Meesho · WhatsApp</b><br>आपकी डिलीवरी का नया समय तय हो गया है ✅')}
+$('#t1-arrive').onclick=()=>{A.stage=1;log('#t1-log',`Parcel scanned at LMDC Deoghar Central. ${A.flags.filter(Boolean).length}/5 flags → message queued.`,'','16:20');a1render();notif($('#t1-ph'),'<b>Meesho · WhatsApp</b><br>आपका ऑर्डर कल आ रहा है! 📦')};
+$('#t1-silent').onclick=()=>{A.done=true;A.stage=3;log('#t1-log','No reply by 21:00 → no change. Parcel loaded in its planned 12–3 pm slot. Cost ₹0.20.','w','21:00');a1render()};
+$('#t1-multi').onchange=a1render;$('#t1-reset').onclick=a1reset;
+
+/* =====================================================
+   2 · DIGIPIN AT CHECKOUT
+   ===================================================== */
+let B;
+function b2reset(){B={who:'self',pin:PX0,placed:false,recState:'none',recPin:[200,40],recMsgs:[],path:null,code:null};$('#t2-log').innerHTML='';$('#t2-res').innerHTML='';$('#t2-steps').innerHTML='';b2render();b2map()}
+function b2render(){
+ const bp=$('#t2-buyer');
+ if(!B.placed){
+  bp.innerHTML=`<div class="scr ma">${MA('7:10 PM','Checkout')}<div class="mbody">
+   <div class="card ord"><div class="thumb"></div><div><p class="h">Silk Saree · Gift</p><div class="lbl">Qty 1</div><b>₹899</b></div></div>
+   <div><b>Who is this order for?</b><div class="seg" style="margin-top:6px"><button data-w="self" aria-pressed="${B.who==='self'}">Myself</button><button data-w="other" aria-pressed="${B.who==='other'}">Someone else</button></div></div>
+   ${B.who==='self'?`<div class="card"><div class="row" style="justify-content:space-between"><b>Pin your exact door</b><span class="lbl">no login</span></div>
+     <div class="mapbox" id="t2-bmap" style="margin-top:7px">${street(B.pin)}<span class="mtag">Drag the pin</span></div>
+     <div class="row" style="justify-content:space-between;margin-top:7px"><span class="lbl">Delivery code (DIGIPIN)</span><span class="dp" id="t2-code">${dpEnc(...px2ll(B.pin))}</span></div></div>`
+   :`<div class="card" style="display:flex;flex-direction:column;gap:8px"><b>Recipient details</b><div class="ctl"><label>Name</label><input type="text" id="t2-rn" value="Rohan Verma"></div><div class="ctl"><label>Mobile number</label><input type="tel" id="t2-rp" value="98765 43210"></div>
+     <div class="note"><span>📍</span><span>We'll ask Rohan to drop his own pin. You'll only see "Address confirmed".</span></div></div>`}
+   <div class="card"><span class="lbl">Address (as typed)</span><div style="font-size:13.5px">${B.who==='self'?'H-42, near Shiv Mandir, opp. the chemist, Deoghar 814112':'Rohan\'s address will be confirmed by him'}</div></div>
+  </div><div class="cta"><button class="pbtn" id="t2-place">Place order · ₹899</button></div></div>`;
+  bp.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{B.who=b.dataset.w;b2render()});
+  const m=bp.querySelector('#t2-bmap');if(m)drag(m,p=>{B.pin=p;bp.querySelector('#t2-code').textContent=dpEnc(...px2ll(p))});
+  bp.querySelector('#t2-place').onclick=b2place;
+ } else {
+  let st;
+  if(B.path==='self')st=`<div class="ri ok"><b>Order placed ✓</b>Delivery code <span class="dp" style="font-size:13px">${B.code}</span> written to your order.</div>`;
+  else if(B.recState==='waiting')st=`<div class="ri warn"><b>Waiting for Rohan</b>We've asked him to confirm where to deliver. If he doesn't reply in 12 hours, we use your saved address.</div>`;
+  else if(B.recState==='confirmed')st=`<div class="ri ok"><b>Address confirmed ✓</b>Rohan confirmed the delivery location.</div><div class="lbl">For his privacy, the exact location isn't shown to you.</div>`;
+  else if(B.recState==='declined')st=`<div class="ri bad"><b>Rohan declined the parcel</b>Choose another address or cancel for free.</div><button class="gbtn">Change address</button>`;
+  else if(B.recState==='timeout')st=`<div class="ri warn"><b>Using your saved address</b>Rohan didn't respond, so we'll deliver to the address you entered.</div>`;
+  bp.innerHTML=`<div class="scr ma">${MA('7:11 PM','Order #MSH50771',false)}<div class="mbody"><div class="card ord"><div class="thumb"></div><div><p class="h">Silk Saree · Gift</p><b>₹899</b></div></div>${st}</div></div>`;
+ }
+ const rp=$('#t2-rec');
+ let h=`<div class="scr wa">${WA('7:11 PM')}<div class="chat"><div class="day">आज</div>`;
+ if(B.recState==='none'||B.path==='self')h+=`<div class="foot" style="text-align:center;margin-top:40px">Rohan only gets a message when someone orders for him.</div>`;
+ else{
+  h+=`<div class="msg"><div class="mhdr"><img src="${LOGO}" alt=""><div><b>प्रिया आपको एक पार्सल भेज रही हैं 🎁</b><small>Meesho से</small></div></div><div class="in">नमस्ते <b>रोहन जी</b>,<br><b>प्रिया शर्मा</b> ने आपके लिए Meesho पर एक ऑर्डर किया है।<br>सही जगह डिलीवरी के लिए कृपया अपनी लोकेशन पिन करें।</div><div class="foot">12 घंटे में जवाब दें</div><time>7:11 PM</time></div>
+   <div class="wbtns"><button data-r="pin" ${B.recState!=='waiting'?'disabled':''}>📍 लोकेशन भेजें</button><button data-r="no" ${B.recState!=='waiting'?'disabled':''}>❌ मुझे नहीं चाहिए</button></div>`;
+  B.recMsgs.forEach(m=>h+=m.html||bub(m));
+ }
+ h+=`</div>${WAIN}</div>`;rp.innerHTML=h;
+ rp.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>b2rec(b.dataset.r));
+ const rm=rp.querySelector('#t2-rmap');if(rm)drag(rm,p=>{B.recPin=p;rp.querySelector('#t2-rcode').textContent=dpEnc(...px2ll(p))});
+ rp.querySelectorAll('[data-rsend]').forEach(b=>b.onclick=()=>b2rec('send'));
+ $$('#t2-paths tr').forEach(r=>r.classList.toggle('hit',r.dataset.p===B.path));
+ $('#t2-12h').disabled=B.recState!=='waiting';$('#t2-scan').disabled=!B.code;
+}
+function b2place(){B.placed=true;
+ if(B.who==='self'){B.path='self';B.code=dpEnc(...px2ll(B.pin));log('#t2-log',`Self · live pin → DIGIPIN <b>${B.code}</b> encoded and written to the order.`,'g','19:10')}
+ else{B.recState='waiting';log('#t2-log','Marked "for someone else" → confirmation request sent to the recipient.','','19:11');setTimeout(()=>notif($('#t2-rec'),'<b>Meesho · WhatsApp</b><br>प्रिया आपको एक पार्सल भेज रही हैं 🎁'),200)}
+ b2render();b2map()}
+function b2rec(a){
+ const rp=$('#t2-rec');
+ if(a==='pin'){B.recMsgs.push({me:1,t:'📍 लोकेशन भेजें',at:'7:13 PM'},{html:`<div class="msg" style="max-width:96%"><div class="in"><b>अपने दरवाज़े पर पिन खींचें</b><div class="mapbox" id="t2-rmap" style="margin-top:6px">${street(B.recPin)}</div><div class="row" style="justify-content:space-between;margin-top:5px"><span class="foot" style="padding:0">कोड</span><span class="dp" id="t2-rcode" style="font-size:13px">${dpEnc(...px2ll(B.recPin))}</span></div><button class="pbtn" style="background:#00A884;margin-top:7px;padding:9px" data-rsend>भेजें</button></div><time>7:13 PM</time></div>`});b2render();return}
+ if(a==='send'){B.recMsgs=B.recMsgs.map(m=>m.html?{t:`📍 लोकेशन भेजी गई · <span class="dp" style="font-size:12px">${dpEnc(...px2ll(B.recPin))}</span>`,me:1,at:'7:14 PM'}:m);B.recMsgs.push({t:'धन्यवाद रोहन जी! ✅ आपका पार्सल इसी जगह पहुँचेगा।',at:'7:14 PM'});
+  B.recState='confirmed';B.path='conf';B.code=dpEnc(...px2ll(B.recPin));log('#t2-log',`Recipient dropped own pin → DIGIPIN <b>${B.code}</b> written. Buyer told "Address confirmed" (no coordinate shown).`,'g','19:14');b2render();b2map();notif($('#t2-buyer'),'<b>Meesho</b><br>Rohan confirmed the delivery address ✓');return}
+ if(a==='no'){B.recMsgs.push({me:1,t:'❌ मुझे नहीं चाहिए',at:'7:13 PM'},{t:'ठीक है, हमने प्रिया जी को बता दिया है। 🙏',at:'7:13 PM'});B.recState='declined';log('#t2-log','Recipient declined → buyer asked to change address or cancel free.','r','19:13');b2render();return}
+}
+$('#t2-12h').onclick=()=>{B.recState='timeout';B.path='none';const hist=$('#t2-hist').checked;B.code=hist?dpEnc(...px2ll([150,110])):null;
+ log('#t2-log',hist?`No response in 12 h → falls back to the saved address. It has been delivered to before, so its Address Graph geocode is used: <b>${B.code}</b>.`:'No response in 12 h → saved address used. Never delivered to before, so no geocode; routes on the typed pincode.','w','07:11');b2render();b2map()};
+$('#t2-reset').onclick=b2reset;
+function b2map(){
+ const box=$('#t2-map');let h=`<svg viewBox="0 0 ${VB.W} ${VB.H}">`;HUBS.forEach((hb,i)=>h+=`<path d="${VOR.renderCell(i)}" fill="${FILL[i]}" stroke="#C8B4CC" stroke-width="1.2"/>`);
+ HUBS.forEach(hb=>h+=`<rect x="${hb.xy[0]-6}" y="${hb.xy[1]-6}" width="12" height="12" rx="3" fill="#570A57"/><text x="${hb.xy[0]}" y="${hb.xy[1]+18}" text-anchor="middle" style="font:700 9.5px var(--f);fill:#2A1630">${hb.id}</text>`);
+ if(B&&B.code){const xy=v2xy(B2ll());h+=`<circle cx="${xy[0]}" cy="${xy[1]}" r="12" fill="#E0287F" opacity=".2"/><circle cx="${xy[0]}" cy="${xy[1]}" r="6" fill="#E0287F" stroke="#fff" stroke-width="2"/>`}
+ box.innerHTML=h+'</svg><span class="mtag">Hub service cells</span>';
+}
+function B2ll(){const ll=dpDec(B.code);/* place demo coordinates inside the map: offset neighbourhood towards H4 so typed-pincode errors are visible */return[ll[0]-0.016,ll[1]+0.042]}
+$('#t2-typed').innerHTML=HUBS.map((h,i)=>`<option value="${i}">${h.id} ${h.n} (typed 814112)</option>`).join('');
+$('#t2-scan').onclick=()=>{const ll=B2ll(),true_=cellOf(v2xy(ll)),typed=+$('#t2-typed').value,ok=true_===typed;
+ $('#t2-steps').innerHTML=[['Sort scan','₹24 already sunk','ok'],['Decode geocode',`${B.code} → ${ll[0].toFixed(4)}, ${ll[1].toFixed(4)}`,'ok'],['Polygon test',`inside ${HUBS[true_].id}'s cell; label says ${HUBS[typed].id}`,ok?'ok':'bad'],[ok?'Proceed':'Divert for ₹5',ok?'goes out on the ₹21 leg':`to ${HUBS[true_].id}, before the ₹21 leg`,ok?'ok':'cur']].map(s=>`<div class="s4 ${s[2]}"><b>${s[0]}</b>${s[1]}</div>`).join('');
+ $('#t2-res').innerHTML=ok?'<div class="verdict ok"><b>Right hub, first time</b>No action.</div>':`<div class="verdict warn"><b>Wrong hub caught at sort</b>Diverted laterally for ₹5 instead of a failed attempt and a ₹120 return.</div>`;
+ log('#t2-log',ok?'Sort: polygon test passed.':`Sort: typed pincode pointed to ${HUBS[typed].id}; coordinate is in ${HUBS[true_].id} → divert ₹5.`,ok?'g':'w','23:40')};
+
+/* =====================================================
+   3 · CoD RISK SCORE
+   ===================================================== */
+const EX=[['A','1 of 2',1,1,0],['B','5 of 100',5,95,0],['C','3 of 15',3,12,0],['D','6 of 15',6,9,0],['E','12 of 18',12,6,0],['F','E after 12 mths',12,18,12]];
+let PAY='cod';
+$('#t3-ex').innerHTML='<span class="lbl" style="width:100%">Worked examples from the deck:</span>'+EX.map(e=>`<button class="btn" data-e="${e[0]}" title="${e[1]}">${e[0]} · ${e[1]}</button>`).join('');
+$$('#t3-ex [data-e]').forEach(b=>b.onclick=()=>{const e=EX.find(x=>x[0]===b.dataset.e);$('#t3-ref').value=e[2];$('#t3-acc').value=e[3];$('#t3-mo').value=e[4];['#t3-exc','#t3-pre','#t3-tr','#t3-trr'].forEach(s=>$(s).value=0);c3()});
+['#t3-ref','#t3-acc','#t3-mo','#t3-exc','#t3-pre','#t3-tr','#t3-trr'].forEach(s=>$(s).oninput=c3);
+function c3(){
+ const ref=Math.max(0,+$('#t3-ref').value||0),acc=Math.max(0,+$('#t3-acc').value||0),mo=+$('#t3-mo').value,exc=Math.min(ref,Math.max(0,+$('#t3-exc').value||0)),pre=+$('#t3-pre').value||0,tr=+$('#t3-tr').value||0,trr=+$('#t3-trr').value||0;
+ $('#t3-mv').textContent=mo+' mo';
+ const cnt=ref-exc,dec=Math.pow(.5,mo/12),eff=cnt*dec,real=cnt+acc,s=(eff+1.06)/(eff+acc+20),raw=real?cnt/real:0,scored=real>=5;
+ let tier=!scored?1:s<.12?1:s<.20?2:s<.25?3:4;let note='';
+ if(tier===4&&pre>=3){tier=3;note='3 prepaid deliveries → back to T3 with CoD capped (trial).'}
+ if(tier>=3&&pre>=3&&tr>=5&&trr<=1){const s2=(eff+trr+1.06)/(eff+trr+acc+tr+20);tier=s2<.12?1:s2<.20?2:s2<.25?3:4;note=`5 trial CoD orders with ≤1 refusal → score recomputed to ${pct(s2)}.`}
+ $('#t3-raw').textContent=pct(raw);$('#t3-s').textContent=scored?pct(s):'—';
+ $('#t3-calc').innerHTML=scored?`effective refusals = ${cnt} × 0.5^(${mo}/12) = ${eff.toFixed(2)}<br>s = (${eff.toFixed(2)} + 1.06) ÷ (${(eff+acc).toFixed(2)} + 20) = <b>${pct(s)}</b>`:`only ${real} real CoD orders → <b>not scored</b> (floor is 5)`;
+ const T=[[1,'T1 · < 12%','No prompt · ~94% of CoD buyers'],[2,'T2 · 12–20%','₹25 off to pay online'],[3,'T3 · 20–25%','CoD capped at ₹500'],[4,'T4 · ≥ 25%','CoD not offered · ~1.8% of CoD buyers']];
+ $('#t3-tiers').innerHTML=T.map(t=>`<div class="verdict ${t[0]===tier?(t[0]===4?'bad':t[0]===1?'ok':'warn'):'n'}" style="padding:7px 10px;${t[0]===tier?'':'opacity:.55'}"><b style="font-size:13.5px">${t[1]}</b>${t[2]}</div>`).join('');
+ $('#t3-back').innerHTML=`<b>The way back · no block is permanent</b>① 3 prepaid deliveries (${Math.min(pre,3)}/3) → T3, CoD capped · ② 5 trial CoD orders (${Math.min(tr,5)}/5) with ≤1 refusal → recompute · ③ 12-month half-life${note?`<br><b style="display:inline;font-size:13px;color:var(--ok)">${note}</b>`:''}`;
+ // checkout
+ const nudge=tier>=2,cap=tier===3,off=tier===4,total=649;if(off&&PAY==='cod')PAY='upi';if(cap&&PAY==='cod')PAY='upi';
+ const ph=$('#t3-ph');
+ ph.innerHTML=`<div class="scr ma">${MA('2:05 PM','Checkout')}<div class="mbody">
+  <div class="card ord"><div class="thumb"></div><div><p class="h">Kurti Set + Dupatta</p><div class="lbl">Delivering to Deoghar</div><b>${inr(total)}</b></div></div>
+  <div class="card" style="display:flex;flex-direction:column;gap:8px"><b>Payment method</b>
+  ${nudge?'<div class="save">Pay online now and get ₹25 off</div>':''}
+  ${[['upi','UPI (PhonePe, GPay, Paytm)',nudge?total-25:total,false],['card','Debit / credit card',nudge?total-25:total,false],['cod','Cash on delivery',total,off]].filter(x=>!x[3]).map(([k,l,a])=>{const dis=k==='cod'&&cap;return `<div class="pay" role="radio" aria-checked="${PAY===k}" data-p="${dis?'':k}" style="${dis?'opacity:.5;cursor:not-allowed':''}"><span class="rr"></span><span>${l}${dis?'<br><span class="lbl">Available on orders up to ₹500</span>':''}</span><span class="amt">${inr(a)}</span></div>`}).join('')}
+  ${off?'<div class="lbl">Pay online for this order. Cash on delivery comes back after a few prepaid orders.</div>':''}
+  </div><div class="note"><span>🛡️</span><span>No cash-on-delivery fee, ever.</span></div>
+ </div><div class="cta"><button class="pbtn">Place order · ${inr(PAY==='cod'?total:(nudge?total-25:total))}</button></div></div>`;
+ ph.querySelectorAll('[data-p]').forEach(b=>{if(b.dataset.p)b.onclick=()=>{PAY=b.dataset.p;c3()}});
+}
+
+/* =====================================================
+   4 · DIGIPIN GATE
+   ===================================================== */
+const DEST=[24.4912,86.7101];let E;
+const CODES=[['🏠','Customer not at home','nothome'],['❓','Address not found','notfound'],['🔒','House locked','locked'],['✋','Customer refused','refused'],['🚧','Can\'t reach (road / gate)','access']];
+function e4reset(){E={scr:'stop',code:null,photo:false,ping:false,ans:null,flag:false};$('#t4-d').value=1200;$('#t4-a').value=12;$('#t4-mock').checked=false;$('#t4-speed').checked=false;$('#t4-res').innerHTML='';$('#t4-steps').innerHTML='';e4render()}
+function e4gate(){const thr=+$('#t4-area').value,d=+$('#t4-d').value,acc=+$('#t4-a').value,mock=$('#t4-mock').checked,spd=$('#t4-speed').checked;
+ const rl=[DEST[0],DEST[1]+d/(111320*Math.cos(DEST[0]*Math.PI/180))],rc=dpEnc(...rl),dc=dpEnc(...DEST),dist=Math.round(hav(dpDec(rc),dpDec(dc))),lim=Math.max(thr,2*acc);
+ const rejected=acc>100||mock||spd;return{thr,d,acc,mock,spd,rc,dc,dist,lim,rejected,ok:!rejected&&dist<=lim}}
+function e4render(){
+ $('#t4-dv').textContent=(+$('#t4-d').value>=1000?(+$('#t4-d').value/1000).toFixed(2)+' km':$('#t4-d').value+' m');$('#t4-av').textContent='±'+$('#t4-a').value+' m';
+ const g=e4gate();const rp=$('#t4-rider');let b='';
+ const bar=`<div class="scr rd">${SB('2:40 PM')}<div class="rbar"><span style="font-size:20px;cursor:pointer" data-home>‹</span><div><b>${E.scr==='stop'?'Stop 9 · Sunita Devi':E.scr==='reasons'?'Why couldn\'t you deliver?':CODES.find(c=>c[2]===E.code)?.[1]||''}</b><small>Parcel MSH48213 · ₹649 CoD · 12–3 pm</small></div></div><div class="rbody">`;
+ if(E.scr==='stop')b=`<div class="mapbox">${street(PX0,`<g transform="translate(${Math.max(10,130-g.d/12)},175)"><circle r="7" fill="#1F2B3A" stroke="#fff" stroke-width="2"/></g>`)}<span class="mtag">You are ${g.d>=1000?(g.d/1000).toFixed(1)+' km':g.d+' m'} away</span></div>
+   <div class="card"><div class="row" style="justify-content:space-between"><b>H-42, near Shiv Mandir</b><span class="dp" style="font-size:12px">${g.dc}</span></div><div class="lbl">Customer chose 12–3 pm</div></div>
+   ${E.flag?'<div class="ri warn"><b>Reopened by the customer</b>She says she did not refuse. Please try again.</div>':''}
+   <button class="rbtn ok">✓ Delivered (OTP)</button><button class="rbtn no" data-go="reasons">✕ Could not deliver</button>`;
+ else if(E.scr==='reasons')b=`<div class="lbl">Pick one reason. There's no free-text option.</div><div class="reasons">${CODES.map(c=>`<button data-c="${c[2]}"><span>${c[0]}</span>${c[1]}</button>`).join('')}</div>`;
+ else if(E.scr==='result'){
+  if(E.code==='refused'&&!E.photo)b=`<div class="ri warn"><b>Photo required</b>Take a photo of the parcel at the door. "Refused" can't be logged without it.</div><button class="rbtn dk" data-photo>📷 Take photo</button>`;
+  else if(E.code==='access')b=`<div class="ri warn"><b>Access issue logged</b>Photo attached and a hub ticket was raised. This isn't counted as a failed attempt.</div><button class="rbtn am" data-home>Back to route</button>`;
+  else if(g.rejected)b=`<div class="ri bad"><b>Location can't be verified</b>${g.acc>100?'GPS accuracy is too low.':g.mock?'Turn off any mock-location app.':'Your movement looks impossible since the last scan.'} Try again at the door.</div><button class="rbtn dk" data-retry>Try again</button>`;
+  else if(!g.ok)b=`<div class="ri bad"><b>You're ${g.dist>=1000?(g.dist/1000).toFixed(1)+' km':g.dist+' m'} from this address</b>Move closer to mark this stop. The parcel stays on your route, with no penalty.</div><button class="rbtn dk">🧭 Navigate to door</button><button class="rbtn no" data-retry>Try again</button><button class="rbtn" style="background:#fff;border:2px solid #E1E6EC;color:var(--rider)" data-c="access">🚧 I can't reach the door</button>`;
+  else b=`<div class="ri ok"><b>Failure accepted ✓</b>You are ${g.dist} m from the delivery DIGIPIN, inside the ${g.lim} m limit.${E.code==='refused'?' We\'ve asked the customer to confirm.':''}</div><button class="rbtn am" data-home>Next stop</button>`;
+ }
+ rp.innerHTML=bar+b+'</div></div>';
+ rp.querySelectorAll('[data-go]').forEach(x=>x.onclick=()=>{E.scr=x.dataset.go;e4render()});
+ rp.querySelectorAll('[data-home]').forEach(x=>x.onclick=()=>{E.scr='stop';e4render()});
+ rp.querySelectorAll('[data-c]').forEach(x=>x.onclick=()=>{E.code=x.dataset.c;E.photo=false;E.scr='result';e4run()});
+ rp.querySelectorAll('[data-retry]').forEach(x=>x.onclick=()=>e4run());
+ rp.querySelectorAll('[data-photo]').forEach(x=>x.onclick=()=>{E.photo=true;e4run()});
+ // buyer
+ const bp=$('#t4-buyer');let h=`<div class="scr wa">${WA('2:52 PM')}<div class="chat"><div class="day">आज</div>`;
+ if(!E.ping)h+=`<div class="foot" style="text-align:center;margin-top:40px">The buyer is only asked when a rider logs "Customer refused".</div>`;
+ else{h+=`<div class="msg"><div class="in">नमस्ते सुनीता जी 🙏<br>हमारे डिलीवरी पार्टनर के अनुसार आपने आज कुर्ती का पार्सल <b>लेने से मना</b> किया।<br>क्या यह सही है?</div><time>2:52 PM</time></div><div class="wbtns"><button data-y="yes" ${E.ans?'disabled':''}>हाँ, मैंने मना किया</button><button data-y="no" ${E.ans?'disabled':''}>नहीं, कोई आया ही नहीं</button></div>`;
+  if(E.ans)h+=bub({me:1,t:E.ans==='yes'?'हाँ, मैंने मना किया':'नहीं, कोई आया ही नहीं',at:'2:53 PM'})+bub({t:E.ans==='yes'?'पुष्टि के लिए धन्यवाद। 🙏':'माफ़ कीजिए! आपकी डिलीवरी फिर से खोल दी गई है, आज दोबारा कोशिश होगी। यह आपके रिकॉर्ड में नहीं गिना जाएगा।',at:'2:53 PM'})}
+ h+=`</div>${WAIN}</div>`;bp.innerHTML=h;
+ bp.querySelectorAll('[data-y]').forEach(x=>x.onclick=()=>{E.ans=x.dataset.y;if(E.ans==='no'){E.flag=true;E.scr='stop';$('#t4-res').innerHTML='<div class="verdict bad"><b>Buyer denied the refusal</b>Parcel reopened and back on the beat. Rider flagged. Refusal struck from the buyer\'s CoD score (tab 3).</div>'}else $('#t4-res').innerHTML='<div class="verdict ok"><b>Refusal confirmed by the buyer</b>Goes to the disposition tree and counts in the CoD score.</div>';e4render()});
+ // peer table
+ const peers=[['Ramesh K.',4.1],['Sonu P.',5.0],['Pintu M.',3.6],['Ajay S.',4.6],['Deepak R.',11.8],['Vikas T.',5.4]];const v=peers.map(p=>p[1]).sort((a,b)=>a-b),med=(v[2]+v[3])/2,mean=v.reduce((a,b)=>a+b)/v.length,sd=Math.sqrt(v.reduce((a,b)=>a+(b-mean)**2,0)/v.length),lim=med+1.5*sd;
+ $('#t4-peer').innerHTML=`<thead><tr><th>Rider (similar parcels)</th><th>Refusal rate</th><th></th></tr></thead><tbody>${peers.map(p=>`<tr><td>${p[0]}${E.flag&&p[0]==='Ramesh K.'?' 🚩':''}</td><td class="mono">${p[1].toFixed(1)}%</td><td>${p[1]>lim?'<span class="pill r">Audit</span>':'<span class="pill g">OK</span>'}</td></tr>`).join('')}<tr><td colspan="3" class="lbl">Median ${med.toFixed(1)}% · audit line ${lim.toFixed(1)}% (median + 1.5σ) · audit, never fine</td></tr></tbody>`;
+}
+function e4run(){const g=e4gate();
+ const steps=[['Taps "failed"',CODES.find(c=>c[2]===E.code)[1],'ok'],['Location → DIGIPIN',g.rejected?`rejected: ${g.acc>100?'accuracy > 100 m':g.mock?'mock location':'impossible speed'}`:`${g.rc} · ±${g.acc} m`,g.rejected?'bad':'ok'],['Distance test',g.rejected?'—':`${g.dist} m vs ${g.lim} m (max of ${g.thr} m, 2× GPS error)`,g.rejected?'':g.ok?'ok':'bad'],['Accept or block',g.rejected||!g.ok?'blocked · stays live':'accepted','cur']];
+ if(E.code==='access'){steps[2]=['Exception','access issue: photo + hub ticket','ok'];steps[3]=['Not a gate failure','parcel stays assigned','cur']}
+ $('#t4-steps').innerHTML=steps.map(s=>`<div class="s4 ${s[2]}"><b>${s[0]}</b>${s[1]}</div>`).join('');
+ if(E.code==='refused'&&E.photo&&g.ok&&!E.ping){E.ping=true;E.ans=null;setTimeout(()=>notif($('#t4-buyer'),'<b>Meesho · WhatsApp</b><br>क्या आपने आज पार्सल लेने से मना किया?'),300);$('#t4-res').innerHTML='<div class="verdict warn"><b>Refusal logged with a photo</b>Buyer confirmation sent within 10 minutes.</div>'}
+ else if(E.code!=='refused'||E.photo)$('#t4-res').innerHTML=E.code==='access'?'<div class="verdict n"><b>Access exception</b>Separate code, photo required, auto-raises a hub ticket.</div>':g.rejected?'<div class="verdict bad"><b>Rejected outright</b>Accuracy over 100 m, mock location or impossible speed.</div>':g.ok?'<div class="verdict ok"><b>✓ Failure accepted</b>Rider is at the door.</div>':'<div class="verdict bad"><b>✕ Blocked · stays live</b>No penalty either way.</div>';
+ e4render()}
+['#t4-d','#t4-a','#t4-area','#t4-mock','#t4-speed'].forEach(s=>$(s).oninput=()=>{if(E.scr==='result'&&E.code)e4run();else e4render()});
+$$('[data-preset]').forEach(b=>b.onclick=()=>{$('#t4-d').value=b.dataset.preset;$('#t4-area').value=150;if(E.scr==='result')e4run();else e4render()});
+$('#t4-reset').onclick=e4reset;
+
+/* =====================================================
+   5 · KIRANA HOLDING NODES
+   ===================================================== */
+const KANO=[['Storage capacity','Basic',.25,[9,6,8]],['Operating hours','Basic',.20,[8,9,6]],['Walkable coverage','Performance',.18,[8,9,6]],['CoD reliability','Performance',.18,[9,6,8]],['Community trust','Excitement',.15,[8,9,6]],['Digital literacy','Excitement',.15,[7,5,9]]];
+let K;
+function k5reset(){K={stage:0,parcels:[{id:'MSH48213',b:'Sunita D.',amt:649,cod:1,otp:'4821',st:'van',me:1},{id:'MSH48230',b:'Rahul S.',amt:0,cod:0,otp:'7730',st:'van'},{id:'MSH48244',b:'Pooja K.',amt:349,cod:1,otp:'1956',st:'van'},{id:'MSH48251',b:'Anil M.',amt:799,cod:1,otp:'6604',st:'van'},{id:'MSH48266',b:'Seema R.',amt:449,cod:1,otp:'3378',st:'van'},{id:'MSH48279',b:'Guddu P.',amt:0,cod:0,otp:'8402',st:'van'},{id:'MSH48283',b:'Rekha T.',amt:259,cod:1,otp:'5517',st:'van'}],float:0,sel:null,wa:false,collected:false,otpErr:''};$('#t5-h').value=2;$('#t5-log').innerHTML='';k5render()}
+function k5elig(){const r=+$('#t5-reg').value/100,door=21+r*120,node=8+12+.35*120,be=(8+12-21+.35*120)/120,ok=r>be;
+ $('#t5-elig').innerHTML=`<div class="bars">${[['Dense urban · all',15],['Semi-urban · Red',40],['Rural · Red',46]].map(([n,v])=>`<div class="bar"><span>${n}</span><s style="position:relative"><i style="width:${v/60*100}%;background:${v>34.2?'var(--pink)':'#E9D7C6'}"></i></s><b>${v}%</b></div>`).join('')}</div>
+ <div class="lbl">Break-even base RTO = (₹8 + ₹12 − ₹21 + 35% × ₹120) ÷ ₹120 = <b>34.2%</b></div>
+ <div class="verdict ${ok?'ok':'bad'}"><b>${ok?'Deploy · saves ₹'+(door-node).toFixed(1)+' per parcel':'Not deployed · the door is cheaper'}</b>Doorstep ₹${door.toFixed(1)} vs via kirana ₹${node.toFixed(1)}${ok?` · RTO ${Math.round(r*100)}% → 35%`:''}</div>`}
+function k5kano(){const tot=[0,1,2].map(j=>KANO.reduce((a,r)=>a+r[2]*r[3][j],0)),best=Math.max(...tot);
+ $('#t5-kano').innerHTML=`<thead><tr><th>Criterion</th><th>Wt</th><th>K1</th><th>K2</th><th>K3</th></tr></thead><tbody>${KANO.map((r,i)=>`<tr><td>${r[0]}<div class="lbl">${r[1]}</div></td><td class="mono">${r[2].toFixed(2)}</td>${r[3].map((v,j)=>`<td><input type="number" min="1" max="10" value="${v}" data-i="${i}" data-j="${j}" style="width:38px;padding:2px 3px;font-size:12.5px" aria-label="${r[0]} K${j+1}"></td>`).join('')}</tr>`).join('')}<tr><td><b>Weighted</b></td><td></td>${tot.map(t=>`<td class="mono"><b>${t.toFixed(2)}</b>${t===best?' ✓':''}</td>`).join('')}</tr></tbody>`;
+ $$('#t5-kano input').forEach(x=>x.onchange=()=>{KANO[+x.dataset.i][3][+x.dataset.j]=Math.max(1,Math.min(10,+x.value||1));k5kano()})}
+function k5render(){
+ const h=+$('#t5-h').value;$('#t5-hv').textContent=h+' h';
+ const S=[['Last-mile hub','Red-lane parcels pulled out'],['One drop','6–8 parcels, ₹8 each'],['Kirana holds','up to 72 hours'],['Buyer collects','300–400 m walk · OTP + pay']];
+ $('#t5-st').innerHTML=S.map((s,i)=>`<div class="stg ${i<K.stage?'done':i===K.stage?'now':''}"><b>${s[0]}</b>${s[1]}</div>`).join('');
+ K.parcels.forEach(p=>{if(p.st==='shelf'&&h>=72){p.st='released';log('#t5-log',`${p.id} not collected in 72 h → released to the disposition tree.`,'r','')}});
+ const held=K.parcels.filter(p=>p.st!=='van').length,coll=K.parcels.filter(p=>p.st==='done').length;
+ $('#t5-float').textContent=inr(K.float);$('#t5-coll').textContent=held?Math.round(coll/held*100)+'%':'—';
+ $('#t5-stat').innerHTML=K.float>5000?'<div class="verdict bad"><b>Float above ₹5,000</b>Drops suspended until settled by UPI.</div>':'<div class="verdict ok"><b>Shop in good standing</b>Daily UPI settlement by 22:00; auto-suspend at 48 h unsettled.</div>';
+ const sp=$('#t5-shop');let b=`<div class="scr kp">${SB('11:05 AM')}<div class="kbar"><span style="font-size:18px">🏪</span><div><b>Gupta General Store · Valmo Point</b><small>Rikhia Road · K1 established grocery</small></div></div><div class="kbody">`;
+ const van=K.parcels.filter(p=>p.st==='van');
+ if(van.length)b+=`<div class="pcl"><b>🚚 Van drop · ${van.length} parcels</b><div class="lbl">Scan each parcel code and photograph its condition. Liability moves to you at the scan.</div><button class="pbtn" style="background:#0F5C4A;margin-top:7px;padding:10px" id="k-scan">Scan in ${van.length} parcels</button></div>`;
+ else b+=`<div class="row" style="justify-content:space-between"><b>On your shelf</b><span class="lbl">₹12 per parcel held</span></div>`;
+ K.parcels.filter(p=>p.st!=='van').forEach(p=>{const left=Math.max(0,72-h),col=h>=66?'#C0283F':h>=48?'#F4A21B':'#1E8E4E';
+  b+=`<div class="pcl"><div class="row" style="justify-content:space-between"><b class="mono" style="font-size:12.5px">${p.id}</b>${p.st==='done'?'<span class="pill g">Collected</span>':p.st==='released'?'<span class="pill r">Released</span>':p.cod?`<span class="pill p">Collect ${inr(p.amt)}</span>`:'<span class="pill">Prepaid</span>'}</div><div class="lbl">${p.b}</div>
+  ${p.st==='shelf'?`<div class="dw"><i style="width:${Math.min(100,h/72*100)}%;background:${col}"></i></div><div class="lbl">${left} h left of 72</div>${K.sel===p.id?`<div class="row" style="flex-wrap:nowrap;margin-top:5px"><input type="text" id="k-otp" placeholder="Buyer's OTP" maxlength="4" inputmode="numeric"><button class="btn solid" id="k-hand">Hand over</button></div><div class="lbl" style="color:var(--bad)">${K.otpErr}</div>`:`<button class="btn" style="width:100%;margin-top:5px" data-sel="${p.id}">Buyer is here</button>`}`:''}</div>`});
+ b+=`<button class="btn" id="k-settle" style="margin-top:4px" ${K.float?'':'disabled'}>Settle ${inr(K.float)} by UPI</button></div></div>`;
+ sp.innerHTML=b;
+ const sc=sp.querySelector('#k-scan');if(sc)sc.onclick=()=>{van.forEach(p=>p.st='shelf');K.stage=2;K.wa=true;$('#t5-h').value=0;log('#t5-log',`One consolidated drop: ${van.length} parcels scanned in with condition photos (₹8 each). Buyers notified with shop, distance and OTP.`,'g','11:05');k5render();setTimeout(()=>notif($('#t5-buyer'),'<b>Meesho · WhatsApp</b><br>आपका पार्सल 180 मीटर दूर गुप्ता जनरल स्टोर पर है'),300)};
+ sp.querySelectorAll('[data-sel]').forEach(x=>x.onclick=()=>{K.sel=x.dataset.sel;K.otpErr='';k5render()});
+ const hb=sp.querySelector('#k-hand');if(hb)hb.onclick=()=>{const p=K.parcels.find(x=>x.id===K.sel),v=sp.querySelector('#k-otp').value.trim();if(v!==p.otp){K.otpErr='OTP does not match. No OTP, no handover.';k5render();return}
+  p.st='done';K.sel=null;if(p.cod)K.float+=p.amt;K.stage=3;if(p.me)K.collected=true;log('#t5-log',`${p.id} handed over (OTP + parcel scan).${p.cod?' '+inr(p.amt)+' added to float.':''}`,'g','');k5render()};
+ sp.querySelector('#k-settle').onclick=()=>{log('#t5-log',`${inr(K.float)} settled by UPI. Cash variance ₹0.`,'g','21:40');K.float=0;k5render()};
+ // buyer
+ const bp=$('#t5-buyer');let w=`<div class="scr wa">${WA('11:06 AM')}<div class="chat"><div class="day">आज</div>`;
+ if(!K.wa)w+=`<div class="foot" style="text-align:center;margin-top:40px">Sent when the shop scans the parcel in.</div>`;
+ else{w+=`<div class="msg"><div class="mhdr"><img src="${LOGO}" alt=""><div><b>आपका पार्सल पास की दुकान पर है 🏪</b><small>ऑर्डर #MSH48213</small></div></div><div class="in">नमस्ते <b>सुनीता जी</b> 🙏<br>आपका पार्सल <b>गुप्ता जनरल स्टोर</b> पर सुरक्षित है, आपके घर से सिर्फ़ <b>180 मीटर</b> (बाज़ार के पास)।
+  <div class="mapbox" style="margin:6px 0">${street([46,36],'<path d="M130 100 L92 100 L92 65 L46 65 L46 48" stroke="#0F6E5A" stroke-width="3" stroke-dasharray="5 5" fill="none"/><g transform="translate(130,100)"><circle r="6" fill="#2A1630" stroke="#fff" stroke-width="2"/></g>')}<span class="mtag">🚶 3 मिनट पैदल</span></div>
+  <div class="r2"><span>🔐</span><span>पिकअप OTP: <b class="mono">4821</b></span></div><div class="r2"><span>💰</span><span>दुकान पर <b>₹649</b> कैश या UPI से दें</span></div><div class="r2"><span>⏳</span><span><b>3 दिन</b> में ले लें · सुबह 8 – रात 9</span></div></div><div class="foot">24 और 48 घंटे बाद याद दिलाया जाएगा</div><time>11:06 AM</time></div>`;
+  if(h>=24)w+=bub({t:'⏰ याद दिलाना: आपका पार्सल गुप्ता जनरल स्टोर पर आपका इंतज़ार कर रहा है।',at:'कल 11:06'});
+  if(h>=48)w+=bub({t:'⏰ आख़िरी याद: पार्सल 24 घंटे और रखा जाएगा।',at:'परसों 11:06'});
+  if(K.collected)w+=bub({t:'✅ आपने पार्सल ले लिया। धन्यवाद! 🙏',at:'अभी'})}
+ w+=`</div>${WAIN}</div>`;bp.innerHTML=w;
+}
+$('#t5-reg').onchange=k5elig;$('#t5-h').oninput=k5render;$('#t5-reset').onclick=k5reset;
+
+/* =====================================================
+   6 · ADDRESS CHANGE (VORONOI)
+   ===================================================== */
+let V;const CUR=v2xy([24.4905,86.7046]);
+function v6reset(){V={scr:'order',changed:0,newxy:[CUR[0]+70,CUR[1]+40],result:null};$('#t6-log').innerHTML='';$('#t6-steps').innerHTML='';$('#t6-multi').checked=false;$('#t6-t').value=1190;v6render()}
+function v6map(){const ci=cellOf(CUR),nb=nbrs(ci),ni=cellOf(V.newxy);let h=`<svg viewBox="0 0 ${VB.W} ${VB.H}">`;
+ HUBS.forEach((hb,i)=>h+=`<path d="${VOR.renderCell(i)}" fill="${i===ci?'#EBD8EE':nb.includes(i)?'#DDF1E5':'#ECE8EA'}" stroke="#fff" stroke-width="2"/>`);
+ HUBS.forEach((hb,i)=>h+=`<g opacity="${i===ci||nb.includes(i)?1:.45}"><rect x="${hb.xy[0]-5}" y="${hb.xy[1]-5}" width="10" height="10" rx="2" fill="#570A57"/><text x="${hb.xy[0]}" y="${hb.xy[1]+16}" text-anchor="middle" style="font:700 8.5px var(--f);fill:#2A1630">${hb.n}</text></g>`);
+ h+=`<circle cx="${CUR[0]}" cy="${CUR[1]}" r="6" fill="#2A1630" stroke="#fff" stroke-width="2"/>`;
+ h+=`<g class="pinG" transform="translate(${V.newxy[0]},${V.newxy[1]})"><circle r="14" fill="#E0287F" opacity=".18"/><path d="M0 0c-6-8-10-11-10-17a10 10 0 0 1 20 0c0 6-4 9-10 17z" fill="#E0287F" stroke="#fff" stroke-width="2"/><circle cy="-17" r="3.6" fill="#fff"/></g></svg>`;return h}
+function v6render(){
+ const t=+$('#t6-t').value;$('#t6-tv').textContent=String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0');
+ const ph=$('#t6-ph');const multi=$('#t6-multi').checked;
+ if(V.scr==='order'){
+  ph.innerHTML=`<div class="scr ma">${MA('7:50 PM','Order details')}<div class="mbody">
+   <div class="card ord"><div class="thumb"></div><div><p class="h">Cotton Kurti Set</p><div class="lbl">#MSH48213 · arriving tomorrow 12–3 pm</div><b>₹649</b></div></div>
+   ${multi?'<div class="note w"><span>📦</span><span>This delivery has 2 parcels. Changing the address moves both.</span></div>':''}
+   <div class="card"><div class="lbl">Delivery address</div><b style="font-size:14px">${V.changed?'New pin · '+dpEnc(...xy2v(V.newxy)):'H-42, near Shiv Mandir, Deoghar 814112'}</b>
+   <button class="gbtn" style="margin-top:9px" id="v-chg">${V.changed?'Address already changed once':'Change delivery address'}</button></div>
+   <div class="lbl" style="text-align:center">Address changes are only available here in the app.</div></div></div>`;
+  ph.querySelector('[data-back]').onclick=()=>{};
+  ph.querySelector('#v-chg').onclick=()=>{if(V.changed){V.scr='res';V.result='twice';v6log();v6render();return}V.scr='map';v6render()};
+ } else if(V.scr==='map'){
+  ph.innerHTML=`<div class="scr ma">${MA('7:51 PM','Change address')}<div class="mbody">
+   <div class="lbl">Drop the pin at the new address. You can move it within the <b style="color:var(--ok)">green areas</b> near your current address.</div>
+   <div class="mapbox" id="v-map">${v6map()}</div>
+   <div class="row" style="font-size:12px;gap:12px"><span><b style="color:#2A1630">●</b> Current address</span><span><b style="color:#E0287F">●</b> New pin</span><span><b style="color:#7BC79A">■</b> Available</span></div>
+   <div class="card"><div class="row" style="justify-content:space-between"><span class="lbl">New delivery code</span><span class="dp" id="v-code">${dpEnc(...xy2v(V.newxy))}</span></div><div class="lbl" id="v-area"></div></div>
+  </div><div class="cta"><button class="pbtn" id="v-save">Confirm new address</button></div></div>`;
+  ph.querySelector('[data-back]').onclick=()=>{V.scr='order';v6render()};
+  const upd=()=>{const ci=cellOf(CUR),ni=cellOf(V.newxy),ok=ni===ci||nbrs(ci).includes(ni);ph.querySelector('#v-code').textContent=dpEnc(...xy2v(V.newxy));ph.querySelector('#v-area').innerHTML=ok?`<span style="color:var(--ok)">✓ ${HUBS[ni].n} area · change available</span>`:`<span style="color:var(--bad)">✕ ${HUBS[ni].n} area is too far for a change</span>`};upd();
+  drag(ph.querySelector('#v-map'),p=>{V.newxy=p;upd()},VB.W,VB.H);
+  ph.querySelector('#v-save').onclick=()=>{v6decide();v6render()};
+ } else {
+  const r=V.result;const okk=r.startsWith('ok');const msg={ok_short:['Address updated ✓','We\'ll deliver tomorrow at the same time. No extra charge.'],ok_long:['Address updated ✓','We\'ll deliver tomorrow at the same time. No extra charge.'],ok_same:['Address updated ✓','Your pin was corrected within the same area.'],far:['Too far to change','This address is outside the areas we can switch to. You can keep the original address or cancel for free.'],late:['Changes closed for today','Address changes close at 9 pm, when tomorrow\'s route is fixed.'],twice:['Already changed once','Each order can have its address changed one time.']}[r];
+  ph.innerHTML=`<div class="scr ma">${MA('7:52 PM','Change address',false)}<div class="done"><div class="okc ${okk?'':'r'}"><div>${okk?'✓':'!'}</div></div><h3 style="margin:0">${msg[0]}</h3><p class="lbl" style="margin:0">${msg[1]}${okk&&multi?' Both parcels move together.':''}</p>
+   ${r==='far'?'<button class="pbtn" style="background:var(--bad)">Cancel order for free</button><button class="gbtn" id="v-keep">Keep original address</button>':'<button class="gbtn" id="v-keep">Back to order</button>'}</div></div>`;
+  ph.querySelector('#v-keep').onclick=()=>{V.scr='order';v6render()};
+ }
+}
+function v6decide(){const t=+$('#t6-t').value,ci=cellOf(CUR),ni=cellOf(V.newxy),adj=nbrs(ci).includes(ni),sep=hav(HUBS[ci].ll,HUBS[ni].ll)/1000,long=sep>9;
+ let st=[['Request','before 21:00',t<1260?'ok':'bad'],['Point-in-polygon',`new pin in ${HUBS[ni].id} ${HUBS[ni].n}`,'ok'],['Adjacency',ni===ci?'same cell':adj?`${HUBS[ci].id}–${HUBS[ni].id} share an edge`:'no shared edge',ni===ci||adj?'ok':'bad'],['Re-route','','cur']];
+ if(t>=1260){V.result='late';st[1][2]='';st[2][2]='';st[3][1]='refused · manifest frozen'}
+ else if(ni===ci){V.result='ok_same';V.changed=1;st[3][1]='no re-route needed'}
+ else if(!adj){V.result='far';st[3][1]='refused → free cancel offered'}
+ else{V.result=long?'ok_long':'ok_short';V.changed=1;st[3][1]=`${long?'long':'short'} edge (${sep.toFixed(1)} km) → lateral ₹${long?22:10}, net ₹${long?82:109}`}
+ $('#t6-steps').innerHTML=st.map(s=>`<div class="s4 ${s[2]}"><b>${s[0]}</b>${s[1]}</div>`).join('');
+ $$('#t6-tab tr').forEach((r,i)=>r.classList.remove('hit'));
+ V.scr='res';v6log()}
+function v6log(){const m={ok_short:['Approved: short-edge lateral move ₹10, dispatched to the holding hub within 30 min; the new hub\'s 05:00 manifest picks it up.','g'],ok_long:['Approved: long-edge lateral move ₹22, spoke-to-spoke, never back through destination sort.','g'],ok_same:['Pin corrected within the same cell. No re-route.','g'],far:['Refused: non-adjacent cell. Free cancel offered.','r'],late:['Refused: after 21:00, manifest frozen.','r'],twice:['Refused: one change per order.','r']}[V.result];
+ log('#t6-log',m[0]+($('#t6-multi').checked&&V.result.startsWith('ok_')&&V.result!=='ok_same'?' Both parcels moved, cost paid once.':''),m[1],$('#t6-tv').textContent)}
+$('#t6-t').oninput=v6render;$('#t6-multi').onchange=v6render;$('#t6-reset').onclick=v6reset;
+
+/* boot */
+a1reset();b2reset();c3();e4reset();k5reset();k5elig();k5kano();v6reset();
+</script>
+</body></html>
